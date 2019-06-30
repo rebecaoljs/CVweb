@@ -1,0 +1,191 @@
+<h1>INFORMAÇÃO PESSOAL</h1>
+
+<button onclick="hideForm(`infoPessoal`)">Preencher</button>
+<form id="infoPessoal" action="/" method="POST">
+    <div class="form-group">
+        <label for="nomeProprio">Nome(s) próprio(s)</label>
+        <input id="nomeProprio" type="text" name="nome" placeholder="Lucas">
+    </div>
+    <div class="form-group">
+        <label for="nomeUltimo">Apelido(s)</label>
+        <input id="nomeUltimo" type="text" name="apelido" placeholder="Santos">
+    </div>
+    <div class="form-group">
+        <label for="ruaNumero">Nome da rua e número</label>
+        <input id="ruaNumero" type="text" name="ruaNumero" placeholder="Rua/Número">
+    </div>
+    <div class="form-group">
+        <label for="codigoPostal">Código postal</label>
+        <input id="codigoPostal" type="text" name="codigoPostal" placeholder="1749-321">
+    </div>
+    <div class="form-group">
+        <label for="cidade">Cidade</label>
+        <input id="cidade" type="text" name="cidadeInfo" placeholder="Lisboa">
+    </div>
+    <div class="form-group">
+        <label for="pais">País</label>
+        <input id="pais" type="text" name="paisInfo" placeholder="Portugal">
+    </div>
+    <div class="form-group">
+        <label for="tel">Telefone(s)</label>
+        <input id="tel" type="text" name="tipo" placeholder="Tipo">
+        <input id="tel" type="text" name="tel" placeholder="(+351) 123 45 67 89">
+    </div>
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input id="email" type="Email" name="email" placeholder="a.campos@mail.pt">
+    </div>
+    <!-- <div class="form-group">
+        <button>Salvar</button>
+    </div> -->
+<!-- </form> -->
+
+<h1>TIPO DE CANDIDATURA</h1>
+<!-- <button onclick="hideForm(`tipoCandidatura`)">Preencher</button>
+<form id="tipoCandidatura" action="/" method="POST"> -->
+    <div class="form-group">
+        <label for="candidatura">Tipo de candidatura</label>
+        <input id="candidatura" type="text" name="candidatura" placeholder="Selecione na lista">
+    </div>
+    <div class="form-group">
+        <label for="descrição">Descrição</label>
+        <input id="descrição" type="text" name="descricao" placeholder="Selecione na lista ou digite texto livre">
+    </div>
+    <!-- <div class="form-group">
+        <button>Salvar</button>
+    </div> -->
+<!-- </form> -->
+
+<h1>EXPERIÊNCIA PROFISSIONAL</h1>
+<!-- <button onclick="hideForm(`expProfissional`)">Preencher</button>
+<form id="expProfissional" action="/" method="POST"> -->
+    <% data(); %>
+    <div class="form-group">
+        <label for="contínuo">Contínuo</label>
+        <input id="contínuo" type="checkbox" name="continuoExp">
+    </div>
+    <!-- <div class="form-group">
+        <label for=" formatoData">Formato da data</label>
+        <input id="formatoData" type="text" name="formatoData">
+    </div> -->
+    <div class="form-group">
+        <label for="cargo">Função ou cargo ocupado</label>
+        <input id="cargo" type="text" name="cargo" placeholder="Selecione na lista ou digite texto livre">
+    </div>
+    <h5>EMPREGADOR</h5>
+    <!-- <button onclick="hideForm(`empregador`)">Preencher</button>
+    <form id="empregador" action="/" method="POST"> -->
+        <div class="form-group">
+            <label for="nomeEmpregador">Nome</label>
+            <input id="nomeEmpregador" type="text" name="nomeEmpregador" placeholder="Reparcar">
+        </div>
+        <div class="form-group">
+            <label for="cidade">Cidade</label>
+            <input id="cidade" type="text" name="cidadeEmpregador" placeholder="Lisboa">
+        </div>
+        <div class="form-group">
+            <label for="pais">País</label>
+            <input id="pais" type="text" name="paisEmpregrador" placeholder="Portugal">
+        </div>
+        <div class="form-group">
+            <label for="actividade">Principais actividades e responsabilidades</label>
+            <textarea id="actividade" name="actividade" cols="30" rows="10"></textarea>
+        </div>
+        <!-- <div class="form-group">
+            <button>Salvar</button>
+        </div> -->
+    <!-- </form> -->
+
+    <h1>EDUCAÇÃO E FORMAÇÃO</h1>
+    <!-- <button onclick="hideForm(`eduForm`)">Preencher</button>
+    <form id="eduForm" action="/" method="POST"> -->
+        <% data(); %>
+        <div class="form-group">
+            <label for="contínuoEdu">Contínuo</label>
+            <input id="contínuoEdu" type="checkbox" name="continuoEdu">
+        </div>
+        <!-- <div class="form-group">
+            <label for=" formatoDataEdu">Formato da data</label>
+            <input id="formatoDataEdu" type="text" name="formatoDataEdu">
+        </div> -->
+        <div class="form-group">
+            <label for="qualificação">Designação da qualificação atribuída</label>
+            <input id="qualificação" type="text" name="qualificacao" placeholder="Certificado de Padeiro/a">
+        </div>
+        <h5>Organização de ensino ou formação</h5>
+        <div class="form-group">
+            <label for="ensino">Nome</label>
+            <input id="ensino" type="text" name="ensino" placeholder="Escola Profissional de Turismo de Estoril">
+        </div>
+        <div class="form-group">
+            <label for="cidade">Cidade</label>
+            <input id="cidade" type="text" name="cidadeEdu" placeholder="Lisboa">
+        </div>
+        <div class="form-group">
+            <label for="pais">País</label>
+            <input id="pais" type="text" name="paisEdu" placeholder="Portugal">
+        </div>
+        <div class="form-group">
+            <label for="disciplinas">Principais disciplinas / competências profissionais</label>
+            <button>Salvar</button>
+            <textarea id="disciplinas" name="disciplinas" cols="30" rows="10"></textarea>
+        </div>
+
+        <% function data(){ %>
+        <div class="form-group">
+            <label for="início">De
+                <select name="month" id="início">
+                    <option value="month">Month</option>
+                    <option value="Jan">1</option>
+                    <option value="Fev">2</option>
+                    <option value="Mar">3</option>
+                </select>
+                <select name="day" id="início">
+                    <option value="day">Day</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                </select>
+                <select name="year" id="início">
+                    <option value="year">Year</option>
+                    <option value="1994">1994</option>
+                    <option value="1993">1993</option>
+                    <option value="1992">1992</option>
+                </select>
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="fim">A
+                <select name="month" id="fim">
+                    <option value="month">Month</option>
+                    <option value="Jan">1</option>
+                    <option value="Fev">2</option>
+                    <option value="Mar">3</option>
+                </select>
+                <select name="day" id="fim">
+                    <option value="day">Day</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                </select>
+                <select name="year" id="fim">
+                    <option value="year">Year</option>
+                    <option value="1994">1994</option>
+                    <option value="1993">1993</option>
+                    <option value="1992">1992</option>
+                </select>
+            </label>
+        </div>
+        <% } %>
+
+        <script type="text/javascript">
+            function hideForm(id) {
+                var x = document.getElementById(id);
+                console.log(x.style.display);
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            } 
+        </script>
