@@ -3,6 +3,10 @@ body{
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.4rem;
 }
+table{
+    border: #033733 solid 1px;
+    text-align: start;
+}
 .navbar{
     background-color: #033733;
     color: #e3ede4;
@@ -10,14 +14,30 @@ body{
 .nav-link{
     color: #e3ede4;
 }
+.fa-book-open{
+    color: #033733;
+}
+.list-group-item{
+    background-color: transparent;
+} 
+.navbar-brand{
+    font-size: 2.5rem;
+}
+.wrapper{
+    max-width:90%;
+    margin: 50px auto;  
+}
+.page-item .page-link{
+    color: #033733;
+}
 .btn-color{
     background-color: #033733;
     color: #e3ede4;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     margin-bottom: 4px;
     width: 100%;
 }
-.h1, h1, #title{
+.title{
     text-align: center;
     padding: 15px 0;
     margin-bottom: 4px;
@@ -25,34 +45,38 @@ body{
     background-color: #033733;
     color: #e3ede4;
 }
-table{
-    border: #033733 solid 1px;
-    text-align: start;
+.radio-space{
+    margin-right: 2rem;
 }
-.page-item .page-link{
+.custom-control-label::before, 
+.custom-control-label::after {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+.fa-plus-square{
+    margin: 33px 0 0 0;
+    font-size: 50px;
     color: #033733;
+}
+.titleDetailPage{
+    text-align: center;
+    background-color: #033733;
+    color: #e3ede4;
+    margin: 20px 20px;
 }
 .itemsCenter{
     text-align: center; 
+}
+#campoExtra {
+    padding: 0.5rem 1.2rem;;
+    margin-top: 1rem;
+    background-color: #caebcc;
 }
 #headTable{
     background-color: #033733;
     color: #e3ede4;
 }
-.fa-book-open{
-    color: #033733;
-}
 #sideBarHead{
     background-color: #370307;
     color: #e3ede4;
-}
-.list-group-item{
-    background-color: transparent;
-}
-.wrapper{
-    max-width:90%;
-    margin: 50px auto;  
-} 
-.navbar-brand{
-    font-size: 2.5rem;
 }

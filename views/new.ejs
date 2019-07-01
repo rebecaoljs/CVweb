@@ -1,47 +1,156 @@
-<h1>INFORMAÇÃO PESSOAL</h1>
+<% include partials/header %></include>
 
-<button onclick="hideForm(`infoPessoal`)">Preencher</button>
-<form id="infoPessoal" action="/" method="POST">
-    <div class="form-group">
-        <label for="nomeProprio">Nome(s) próprio(s)</label>
-        <input id="nomeProprio" type="text" name="nome" placeholder="Lucas">
+<form action="/" method="POST">
+    <div class="form-group form-inline form-head-center">
+        <label for="personalInfo"></label>
+        <h1 id="personalInfo">INFORMAÇÃO PESSOAL</h1>
     </div>
-    <div class="form-group">
-        <label for="nomeUltimo">Apelido(s)</label>
-        <input id="nomeUltimo" type="text" name="apelido" placeholder="Santos">
-    </div>
-    <div class="form-group">
-        <label for="ruaNumero">Nome da rua e número</label>
-        <input id="ruaNumero" type="text" name="ruaNumero" placeholder="Rua/Número">
-    </div>
-    <div class="form-group">
-        <label for="codigoPostal">Código postal</label>
-        <input id="codigoPostal" type="text" name="codigoPostal" placeholder="1749-321">
-    </div>
-    <div class="form-group">
-        <label for="cidade">Cidade</label>
-        <input id="cidade" type="text" name="cidadeInfo" placeholder="Lisboa">
-    </div>
-    <div class="form-group">
-        <label for="pais">País</label>
-        <input id="pais" type="text" name="paisInfo" placeholder="Portugal">
-    </div>
-    <div class="form-group">
-        <label for="tel">Telefone(s)</label>
-        <input id="tel" type="text" name="tipo" placeholder="Tipo">
-        <input id="tel" type="text" name="tel" placeholder="(+351) 123 45 67 89">
-    </div>
-    <div class="form-group">
-        <label for="email">Email:</label>
-        <input id="email" type="Email" name="email" placeholder="a.campos@mail.pt">
-    </div>
-    <!-- <div class="form-group">
-        <button>Salvar</button>
-    </div> -->
-<!-- </form> -->
+    <div class="container" id="firstPieceForm">
+        <div class="form-group">
+            <label for="firstName">Nome(s) próprio(s):</label>
+            <input id="firstName" class="form-control form-control-lg" type="text" name="nome" placeholder="Ex.: Lucas">
+        </div>
+        <div class="form-group">
+            <label for="lastName">Apelido(s)</label>
+            <input id="lastName" class="form-control form-control-lg" type="text" name="apelido"
+                placeholder="Ex.: Ramos">
+        </div>
+        <div class="form-group">
+            <label for="adressNumber">Nome da rua e número</label>
+            <input id="adressNumber" class="form-control form-control-lg" type="text" name="ruaNumero"
+                placeholder="Ex.: Rua/Número">
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="postCode">Código postal</label>
+                <input id="postCode" class="form-control form-control-lg" type="number" name="codigoPostal"
+                    placeholder="Ex.: 1749-321">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="city">Cidade</label>
+                <input id="city" class="form-control form-control-lg" type="text" name="cidadeInfo"
+                    placeholder="Ex.: Lisboa">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="countryList">País</label>
+                <select id="countryList" class="form-control custom-select-lg custom-select" name="paisInfo">
+                    <% country(); %>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="tel">Telefone(s):</label>
+                <input id="tel" class="form-control form-control-lg" type="tel" name="tel"
+                    placeholder="Ex.: (+351) 123 45 67 89">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="type">Tipo(s):</label>
+                <select id="type" class="form-control custom-select-lg custom-select" name="tipo">
+                    <option value="Telemóvel">Telemóvel</option>
+                    <option value="Casa">Casa</option>
+                    <option value="Trabalho">Trabalho</option>
+                </select>
+            </div>
+            <!-- <div class="form-group col-md-1" id="background-btn">
+                <button class="btn"><i class="far fa-plus-square"></i></button>
+            </div> -->
+        </div>
+        <div class="form-group">
+            <label for="webPage">Página Web / Blog / LinkedIn:</label>
+            <input id="webPage" class="form-control form-control-lg" type="url" name="webPage"
+                placeholder="www.linkedin.com/lucasramos">
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input id="email" class="form-control form-control-lg" type="email" name="email"
+                placeholder="Ex.: lucas_ramos@mail.pt">
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="msg">Mensagem Instantânea:</label>
+                <input id="msg" class="form-control form-control-lg" type="text" name="msg"
+                    placeholder="Ex.: lucas.ramos">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="typeMsg">Tipo(s):</label>
+                <select id="typeMsg" class="form-control custom-select-lg custom-select" name="tipoMsg">
+                    <option value="Skype">Skype</option>
+                    <option value="Whatsapp">Whatsapp</option>
+                    <option value="Google Hangouts">Google Hangouts</option>
+                    <option value="ICQ">ICQ</option>
+                    <option value="AOL Instant Messeger(AIM)">AOL Instant Messeger(AIM)</option>
+                    <option value="MSN">MSN</option>
+                    <option value="Yahoo! Messeger (YIM)">Yahoo! Messeger (YIM)</option>
+                </select>
+            </div>
+        </div>
+        <div class="custom-control custom-checkbox">
+            <input class="custom-control-input" id="extra" type="checkbox" onclick="hideExtra()">
+            <label class="custom-control-label" for="extra">Campos extra</label>
+        </div>
+        <div class="form-group" id="campoExtra">
+            <div class="form-group">
+                <p> Preencher, caso necessário. Verifique disposições aplicáveis sobre o fornecimento de dados, tais
+                    como sexo, idade, nacionalidade, etc. para o CV.</p>
+            </div>
+            <div>
+                <div class="form-group">
+                    <p>Sexo:</p>
+                </div>
+                <div class="form-group form-inline">
 
-<h1>TIPO DE CANDIDATURA</h1>
-<!-- <button onclick="hideForm(`tipoCandidatura`)">Preencher</button>
+                    <div class="custom-control custom-radio radio-space">
+                        <input class="custom-control-input" name="radioExtra" id="man" type="radio">
+                        <label class="custom-control-label" for="man">Masculino</label>
+                    </div>
+                    <div class="custom-control custom-radio radio-space">
+                        <input class="custom-control-input" name="radioExtra" id="woman" type="radio">
+                        <label class="custom-control-label" for="woman">Feminino</label>
+                    </div>
+                    <div class="custom-control custom-radio radio-space">
+                        <input class="custom-control-input" name="radioExtra" id="naoIndicar" type="radio">
+                        <label class="custom-control-label" for="naoIndicar">Não indicar</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="msg">Data de nascimento:</label>
+                    <% day(); %>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="msg">.</label>
+                    <% month(); %>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="msg">.</label>
+                    <% year(); %>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="dateFormat">Formato da data</label>
+                <select id="dateFormat" class="form-control custom-select-lg custom-select" name="formatoData">
+                    <option data-value="numeric/long">31/01/2005</option>
+                    <option data-value="text/short">31 Jan 05</option>
+                    <option data-value="numeric/short">31/1/05</option>
+                    <option data-value="numeric/medium">31/1/2005</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="nacionalidade">Nacionalidade</label>
+                <select id="nacionalidade" class="form-control custom-select-lg custom-select" name="nacionalidade">
+                    <% nationalities(); %>
+                </select>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ===================================================================== -->
+    <h1>TIPO DE CANDIDATURA</h1>
+    <!-- <button onclick="hideForm(`tipoCandidatura`)">Preencher</button>
 <form id="tipoCandidatura" action="/" method="POST"> -->
     <div class="form-group">
         <label for="candidatura">Tipo de candidatura</label>
@@ -54,15 +163,13 @@
     <!-- <div class="form-group">
         <button>Salvar</button>
     </div> -->
-<!-- </form> -->
-
-<h1>EXPERIÊNCIA PROFISSIONAL</h1>
-<!-- <button onclick="hideForm(`expProfissional`)">Preencher</button>
+    <!-- </form> -->
+    <h1>EXPERIÊNCIA PROFISSIONAL</h1>
+    <!-- <button onclick="hideForm(`expProfissional`)">Preencher</button>
 <form id="expProfissional" action="/" method="POST"> -->
-    <% data(); %>
     <div class="form-group">
         <label for="contínuo">Contínuo</label>
-        <input id="contínuo" type="checkbox" name="continuoExp">
+        <input id="contínuo" type="radio" name="continuoExp">
     </div>
     <!-- <div class="form-group">
         <label for=" formatoData">Formato da data</label>
@@ -75,23 +182,23 @@
     <h5>EMPREGADOR</h5>
     <!-- <button onclick="hideForm(`empregador`)">Preencher</button>
     <form id="empregador" action="/" method="POST"> -->
-        <div class="form-group">
-            <label for="nomeEmpregador">Nome</label>
-            <input id="nomeEmpregador" type="text" name="nomeEmpregador" placeholder="Reparcar">
-        </div>
-        <div class="form-group">
-            <label for="cidade">Cidade</label>
-            <input id="cidade" type="text" name="cidadeEmpregador" placeholder="Lisboa">
-        </div>
-        <div class="form-group">
-            <label for="pais">País</label>
-            <input id="pais" type="text" name="paisEmpregrador" placeholder="Portugal">
-        </div>
-        <div class="form-group">
-            <label for="actividade">Principais actividades e responsabilidades</label>
-            <textarea id="actividade" name="actividade" cols="30" rows="10"></textarea>
-        </div>
-        <!-- <div class="form-group">
+    <div class="form-group">
+        <label for="nomeEmpregador">Nome</label>
+        <input id="nomeEmpregador" type="text" name="nomeEmpregador" placeholder="Reparcar">
+    </div>
+    <div class="form-group">
+        <label for="cidade">Cidade</label>
+        <input id="cidade" type="text" name="cidadeEmpregador" placeholder="Lisboa">
+    </div>
+    <div class="form-group">
+        <label for="pais">País</label>
+        <input id="pais" type="text" name="paisEmpregrador" placeholder="Portugal">
+    </div>
+    <div class="form-group">
+        <label for="actividade">Principais actividades e responsabilidades</label>
+        <textarea id="actividade" name="actividade" cols="30" rows="10"></textarea>
+    </div>
+    <!-- <div class="form-group">
             <button>Salvar</button>
         </div> -->
     <!-- </form> -->
@@ -99,93 +206,705 @@
     <h1>EDUCAÇÃO E FORMAÇÃO</h1>
     <!-- <button onclick="hideForm(`eduForm`)">Preencher</button>
     <form id="eduForm" action="/" method="POST"> -->
-        <% data(); %>
-        <div class="form-group">
-            <label for="contínuoEdu">Contínuo</label>
-            <input id="contínuoEdu" type="checkbox" name="continuoEdu">
-        </div>
-        <!-- <div class="form-group">
+    <div class="form-group">
+        <label for="contínuoEdu">Contínuo</label>
+        <input id="contínuoEdu" type="checkbox" name="continuoEdu">
+    </div>
+    <!-- <div class="form-group">
             <label for=" formatoDataEdu">Formato da data</label>
             <input id="formatoDataEdu" type="text" name="formatoDataEdu">
         </div> -->
-        <div class="form-group">
-            <label for="qualificação">Designação da qualificação atribuída</label>
-            <input id="qualificação" type="text" name="qualificacao" placeholder="Certificado de Padeiro/a">
-        </div>
-        <h5>Organização de ensino ou formação</h5>
-        <div class="form-group">
-            <label for="ensino">Nome</label>
-            <input id="ensino" type="text" name="ensino" placeholder="Escola Profissional de Turismo de Estoril">
-        </div>
-        <div class="form-group">
-            <label for="cidade">Cidade</label>
-            <input id="cidade" type="text" name="cidadeEdu" placeholder="Lisboa">
-        </div>
-        <div class="form-group">
-            <label for="pais">País</label>
-            <input id="pais" type="text" name="paisEdu" placeholder="Portugal">
-        </div>
-        <div class="form-group">
-            <label for="disciplinas">Principais disciplinas / competências profissionais</label>
-            <button>Salvar</button>
-            <textarea id="disciplinas" name="disciplinas" cols="30" rows="10"></textarea>
-        </div>
+    <div class="form-group">
+        <label for="qualificação">Designação da qualificação atribuída</label>
+        <input id="qualificação" type="text" name="qualificacao" placeholder="Certificado de Padeiro/a">
+    </div>
+    <h5>Organização de ensino ou formação</h5>
+    <div class="form-group">
+        <label for="ensino">Nome</label>
+        <input id="ensino" type="text" name="ensino" placeholder="Escola Profissional de Turismo de Estoril">
+    </div>
+    <div class="form-group">
+        <label for="cidade">Cidade</label>
+        <input id="cidade" type="text" name="cidadeEdu" placeholder="Lisboa">
+    </div>
+    <div class="form-group">
+        <label for="pais">País</label>
+        <input id="pais" type="text" name="paisEdu" placeholder="Portugal">
+    </div>
+    <div class="form-group">
+        <label for="disciplinas">Principais disciplinas / competências profissionais</label>
+        <button>Salvar</button>
+        <textarea id="disciplinas" name="disciplinas" cols="30" rows="10"></textarea>
+    </div>
 
-        <% function data(){ %>
-        <div class="form-group">
-            <label for="início">De
-                <select name="month" id="início">
-                    <option value="month">Month</option>
-                    <option value="Jan">1</option>
-                    <option value="Fev">2</option>
-                    <option value="Mar">3</option>
-                </select>
-                <select name="day" id="início">
-                    <option value="day">Day</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                    <option value="13">13</option>
-                </select>
-                <select name="year" id="início">
-                    <option value="year">Year</option>
-                    <option value="1994">1994</option>
-                    <option value="1993">1993</option>
-                    <option value="1992">1992</option>
-                </select>
-            </label>
-        </div>
-        <div class="form-group">
-            <label for="fim">A
-                <select name="month" id="fim">
-                    <option value="month">Month</option>
-                    <option value="Jan">1</option>
-                    <option value="Fev">2</option>
-                    <option value="Mar">3</option>
-                </select>
-                <select name="day" id="fim">
-                    <option value="day">Day</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                    <option value="13">13</option>
-                </select>
-                <select name="year" id="fim">
-                    <option value="year">Year</option>
-                    <option value="1994">1994</option>
-                    <option value="1993">1993</option>
-                    <option value="1992">1992</option>
-                </select>
-            </label>
-        </div>
-        <% } %>
+    <!-- ========================================== Functions ========================================== -->
 
-        <script type="text/javascript">
-            function hideForm(id) {
-                var x = document.getElementById(id);
-                console.log(x.style.display);
-                if (x.style.display === "none") {
-                    x.style.display = "block";
-                } else {
-                    x.style.display = "none";
-                }
-            } 
-        </script>
+    <script type="text/javascript">
+        function hideDiv(id) {
+            var x = document.getElementById(id);
+            console.log(x.style.display);
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        } 
+    </script>
+
+    <script type="text/javascript">
+        function hideExtra() {
+            // Get the checkbox
+            var checkBox = document.getElementById("extra");
+            // Get the output text
+            var text = document.getElementById("campoExtra");
+
+            // If the checkbox is checked, display the output text
+            if (checkBox.checked == true) {
+                text.style.display = "block";
+            } else {
+                text.style.display = "none";
+            }
+        } 
+    </script>
+    <!-- ========================================== Date List ========================================== -->
+
+    <% function day(){ %>
+    <select class="form-control custom-select-lg custom-select" name="dateDay" id="dateForm">
+        <option value="">DD</option>
+        <option value="">---</option>
+        <option value="01">01</option>
+        <option value="02">02</option>
+        <option value="03">03</option>
+        <option value="04">04</option>
+        <option value="05">05</option>
+        <option value="06">06</option>
+        <option value="07">07</option>
+        <option value="08">08</option>
+        <option value="09">09</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
+        <option value="30">30</option>
+        <option value="31">31</option>
+    </select>
+    <% } %>
+    <% function month(){ %>
+    <select class="form-control custom-select-lg custom-select" name="dateMonth" id="dateForm">
+        <option value="">MM</option>
+        <option value="">-----</option>
+        <option value="01">Janeiro</option>
+        <option value="02">Fevereiro</option>
+        <option value="03">Março</option>
+        <option value="04">Abril</option>
+        <option value="05">Maio</option>
+        <option value="06">Junho</option>
+        <option value="07">Julho</option>
+        <option value="08">Agosto</option>
+        <option value="09">Setembro</option>
+        <option value="10">Outubro</option>
+        <option value="11">Novembro</option>
+        <option value="12">Dezembro</option>
+    </select>
+    <% } %>
+    <% function year(){ %>
+    <select class="form-control custom-select-lg custom-select" name="dateYear" id="dateForm">
+        <option value="">AAAA</option>
+        <option value="">----</option>
+        <option value="2011">2019</option>
+        <option value="2010">2018</option>
+        <option value="2009">2017</option>
+        <option value="2008">2016</option>
+        <option value="2007">2015</option>
+        <option value="2006">2014</option>
+        <option value="2005">2013</option>
+        <option value="2012">2012</option>
+        <option value="2011">2011</option>
+        <option value="2010">2010</option>
+        <option value="2009">2009</option>
+        <option value="2008">2008</option>
+        <option value="2007">2007</option>
+        <option value="2006">2006</option>
+        <option value="2005">2005</option>
+        <option value="2004">2004</option>
+        <option value="2003">2003</option>
+        <option value="2002">2002</option>
+        <option value="2001">2001</option>
+        <option value="2000">2000</option>
+        <option value="1999">1999</option>
+        <option value="1998">1998</option>
+        <option value="1997">1997</option>
+        <option value="1996">1996</option>
+        <option value="1995">1995</option>
+        <option value="1994">1994</option>
+        <option value="1993">1993</option>
+        <option value="1992">1992</option>
+        <option value="1991">1991</option>
+        <option value="1990">1990</option>
+        <option value="1989">1989</option>
+        <option value="1988">1988</option>
+        <option value="1987">1987</option>
+        <option value="1986">1986</option>
+        <option value="1985">1985</option>
+        <option value="1984">1984</option>
+        <option value="1983">1983</option>
+        <option value="1982">1982</option>
+        <option value="1981">1981</option>
+        <option value="1980">1980</option>
+        <option value="1979">1979</option>
+        <option value="1978">1978</option>
+        <option value="1977">1977</option>
+        <option value="1976">1976</option>
+        <option value="1975">1975</option>
+        <option value="1974">1974</option>
+        <option value="1973">1973</option>
+        <option value="1972">1972</option>
+        <option value="1971">1971</option>
+        <option value="1970">1970</option>
+        <option value="1969">1969</option>
+        <option value="1968">1968</option>
+        <option value="1967">1967</option>
+        <option value="1966">1966</option>
+        <option value="1965">1965</option>
+        <option value="1964">1964</option>
+        <option value="1963">1963</option>
+        <option value="1962">1962</option>
+        <option value="1961">1961</option>
+        <option value="1960">1960</option>
+        <option value="1959">1959</option>
+        <option value="1958">1958</option>
+        <option value="1957">1957</option>
+        <option value="1956">1956</option>
+        <option value="1955">1955</option>
+        <option value="1954">1954</option>
+        <option value="1953">1953</option>
+        <option value="1952">1952</option>
+        <option value="1951">1951</option>
+        <option value="1950">1950</option>
+        <option value="1949">1949</option>
+        <option value="1948">1948</option>
+        <option value="1947">1947</option>
+        <option value="1946">1946</option>
+        <option value="1945">1945</option>
+        <option value="1944">1944</option>
+        <option value="1943">1943</option>
+        <option value="1942">1942</option>
+        <option value="1941">1941</option>
+        <option value="1940">1940</option>
+        <option value="1939">1939</option>
+        <option value="1938">1938</option>
+        <option value="1937">1937</option>
+        <option value="1936">1936</option>
+        <option value="1935">1935</option>
+        <option value="1934">1934</option>
+        <option value="1933">1933</option>
+        <option value="1932">1932</option>
+        <option value="1931">1931</option>
+        <option value="1930">1930</option>
+        <option value="1929">1929</option>
+        <option value="1928">1928</option>
+        <option value="1927">1927</option>
+        <option value="1926">1926</option>
+        <option value="1925">1925</option>
+        <option value="1924">1924</option>
+        <option value="1923">1923</option>
+        <option value="1922">1922</option>
+        <option value="1921">1921</option>
+        <option value="1920">1920</option>
+        <option value="1919">1919</option>
+        <option value="1918">1918</option>
+        <option value="1917">1917</option>
+        <option value="1916">1916</option>
+        <option value="1915">1915</option>
+        <option value="1914">1914</option>
+        <option value="1913">1913</option>
+        <option value="1912">1912</option>
+        <option value="1911">1911</option>
+        <option value="1910">1910</option>
+        <option value="1909">1909</option>
+        <option value="1908">1908</option>
+        <option value="1907">1907</option>
+        <option value="1906">1906</option>
+        <option value="1905">1905</option>
+        <option value="1904">1904</option>
+        <option value="1903">1903</option>
+        <option value="1901">1902</option>
+        <option value="1901">1901</option>
+        <option value="1900">1900</option>
+    </select>
+    <% } %>
+
+    <!-- ================================================ Country List ================================== -->
+
+    <% function country(){ %>
+    <option value="Selecionar">Selecionar</option>
+    <option value="">----</option>
+    <option value="Afghanistan">Afghanistan</option>
+    <option value="Åland Islands">Åland Islands</option>
+    <option value="Albania">Albania</option>
+    <option value="Algeria">Algeria</option>
+    <option value="American Samoa">American Samoa</option>
+    <option value="Andorra">Andorra</option>
+    <option value="Angola">Angola</option>
+    <option value="Anguilla">Anguilla</option>
+    <option value="Antarctica">Antarctica</option>
+    <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+    <option value="Argentina">Argentina</option>
+    <option value="Armenia">Armenia</option>
+    <option value="Aruba">Aruba</option>
+    <option value="Australia">Australia</option>
+    <option value="Austria">Austria</option>
+    <option value="Azerbaijan">Azerbaijan</option>
+    <option value="Bahamas">Bahamas</option>
+    <option value="Bahrain">Bahrain</option>
+    <option value="Bangladesh">Bangladesh</option>
+    <option value="Barbados">Barbados</option>
+    <option value="Belarus">Belarus</option>
+    <option value="Belgium">Belgium</option>
+    <option value="Belize">Belize</option>
+    <option value="Benin">Benin</option>
+    <option value="Bermuda">Bermuda</option>
+    <option value="Bhutan">Bhutan</option>
+    <option value="Bolivia">Bolivia</option>
+    <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+    <option value="Botswana">Botswana</option>
+    <option value="Bouvet Island">Bouvet Island</option>
+    <option value="Brazil">Brazil</option>
+    <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+    <option value="Brunei Darussalam">Brunei Darussalam</option>
+    <option value="Bulgaria">Bulgaria</option>
+    <option value="Burkina Faso">Burkina Faso</option>
+    <option value="Burundi">Burundi</option>
+    <option value="Cambodia">Cambodia</option>
+    <option value="Cameroon">Cameroon</option>
+    <option value="Canada">Canada</option>
+    <option value="Cape Verde">Cape Verde</option>
+    <option value="Cayman Islands">Cayman Islands</option>
+    <option value="Central African Republic">Central African Republic</option>
+    <option value="Chad">Chad</option>
+    <option value="Chile">Chile</option>
+    <option value="China">China</option>
+    <option value="Christmas Island">Christmas Island</option>
+    <option value="Cocos (Keeling) Islands">Cocos (Keeling) Islands</option>
+    <option value="Colombia">Colombia</option>
+    <option value="Comoros">Comoros</option>
+    <option value="Congo">Congo</option>
+    <option value="Congo, The Democratic Republic of The">Congo, The Democratic Republic of The</option>
+    <option value="Cook Islands">Cook Islands</option>
+    <option value="Costa Rica">Costa Rica</option>
+    <option value="Cote D'ivoire">Cote D'ivoire</option>
+    <option value="Croatia">Croatia</option>
+    <option value="Cuba">Cuba</option>
+    <option value="Cyprus">Cyprus</option>
+    <option value="Czech Republic">Czech Republic</option>
+    <option value="Denmark">Denmark</option>
+    <option value="Djibouti">Djibouti</option>
+    <option value="Dominica">Dominica</option>
+    <option value="Dominican Republic">Dominican Republic</option>
+    <option value="Ecuador">Ecuador</option>
+    <option value="Egypt">Egypt</option>
+    <option value="El Salvador">El Salvador</option>
+    <option value="Equatorial Guinea">Equatorial Guinea</option>
+    <option value="Eritrea">Eritrea</option>
+    <option value="Estonia">Estonia</option>
+    <option value="Ethiopia">Ethiopia</option>
+    <option value="Falkland Islands (Malvinas)">Falkland Islands (Malvinas)</option>
+    <option value="Faroe Islands">Faroe Islands</option>
+    <option value="Fiji">Fiji</option>
+    <option value="Finland">Finland</option>
+    <option value="France">France</option>
+    <option value="French Guiana">French Guiana</option>
+    <option value="French Polynesia">French Polynesia</option>
+    <option value="French Southern Territories">French Southern Territories</option>
+    <option value="Gabon">Gabon</option>
+    <option value="Gambia">Gambia</option>
+    <option value="Georgia">Georgia</option>
+    <option value="Germany">Germany</option>
+    <option value="Ghana">Ghana</option>
+    <option value="Gibraltar">Gibraltar</option>
+    <option value="Greece">Greece</option>
+    <option value="Greenland">Greenland</option>
+    <option value="Grenada">Grenada</option>
+    <option value="Guadeloupe">Guadeloupe</option>
+    <option value="Guam">Guam</option>
+    <option value="Guatemala">Guatemala</option>
+    <option value="Guernsey">Guernsey</option>
+    <option value="Guinea">Guinea</option>
+    <option value="Guinea-bissau">Guinea-bissau</option>
+    <option value="Guyana">Guyana</option>
+    <option value="Haiti">Haiti</option>
+    <option value="Heard Island and Mcdonald Islands">Heard Island and Mcdonald Islands</option>
+    <option value="Holy See (Vatican City State)">Holy See (Vatican City State)</option>
+    <option value="Honduras">Honduras</option>
+    <option value="Hong Kong">Hong Kong</option>
+    <option value="Hungary">Hungary</option>
+    <option value="Iceland">Iceland</option>
+    <option value="India">India</option>
+    <option value="Indonesia">Indonesia</option>
+    <option value="Iran, Islamic Republic of">Iran, Islamic Republic of</option>
+    <option value="Iraq">Iraq</option>
+    <option value="Ireland">Ireland</option>
+    <option value="Isle of Man">Isle of Man</option>
+    <option value="Israel">Israel</option>
+    <option value="Italy">Italy</option>
+    <option value="Jamaica">Jamaica</option>
+    <option value="Japan">Japan</option>
+    <option value="Jersey">Jersey</option>
+    <option value="Jordan">Jordan</option>
+    <option value="Kazakhstan">Kazakhstan</option>
+    <option value="Kenya">Kenya</option>
+    <option value="Kiribati">Kiribati</option>
+    <option value="Korea, Democratic People's Republic of">Korea, Democratic People's Republic of</option>
+    <option value="Korea, Republic of">Korea, Republic of</option>
+    <option value="Kuwait">Kuwait</option>
+    <option value="Kyrgyzstan">Kyrgyzstan</option>
+    <option value="Lao People's Democratic Republic">Lao People's Democratic Republic</option>
+    <option value="Latvia">Latvia</option>
+    <option value="Lebanon">Lebanon</option>
+    <option value="Lesotho">Lesotho</option>
+    <option value="Liberia">Liberia</option>
+    <option value="Libyan Arab Jamahiriya">Libyan Arab Jamahiriya</option>
+    <option value="Liechtenstein">Liechtenstein</option>
+    <option value="Lithuania">Lithuania</option>
+    <option value="Luxembourg">Luxembourg</option>
+    <option value="Macao">Macao</option>
+    <option value="Macedonia, The Former Yugoslav Republic of">Macedonia, The Former Yugoslav Republic of</option>
+    <option value="Madagascar">Madagascar</option>
+    <option value="Malawi">Malawi</option>
+    <option value="Malaysia">Malaysia</option>
+    <option value="Maldives">Maldives</option>
+    <option value="Mali">Mali</option>
+    <option value="Malta">Malta</option>
+    <option value="Marshall Islands">Marshall Islands</option>
+    <option value="Martinique">Martinique</option>
+    <option value="Mauritania">Mauritania</option>
+    <option value="Mauritius">Mauritius</option>
+    <option value="Mayotte">Mayotte</option>
+    <option value="Mexico">Mexico</option>
+    <option value="Micronesia, Federated States of">Micronesia, Federated States of</option>
+    <option value="Moldova, Republic of">Moldova, Republic of</option>
+    <option value="Monaco">Monaco</option>
+    <option value="Mongolia">Mongolia</option>
+    <option value="Montenegro">Montenegro</option>
+    <option value="Montserrat">Montserrat</option>
+    <option value="Morocco">Morocco</option>
+    <option value="Mozambique">Mozambique</option>
+    <option value="Myanmar">Myanmar</option>
+    <option value="Namibia">Namibia</option>
+    <option value="Nauru">Nauru</option>
+    <option value="Nepal">Nepal</option>
+    <option value="Netherlands">Netherlands</option>
+    <option value="Netherlands Antilles">Netherlands Antilles</option>
+    <option value="New Caledonia">New Caledonia</option>
+    <option value="New Zealand">New Zealand</option>
+    <option value="Nicaragua">Nicaragua</option>
+    <option value="Niger">Niger</option>
+    <option value="Nigeria">Nigeria</option>
+    <option value="Niue">Niue</option>
+    <option value="Norfolk Island">Norfolk Island</option>
+    <option value="Northern Mariana Islands">Northern Mariana Islands</option>
+    <option value="Norway">Norway</option>
+    <option value="Oman">Oman</option>
+    <option value="Pakistan">Pakistan</option>
+    <option value="Palau">Palau</option>
+    <option value="Palestinian Territory, Occupied">Palestinian Territory, Occupied</option>
+    <option value="Panama">Panama</option>
+    <option value="Papua New Guinea">Papua New Guinea</option>
+    <option value="Paraguay">Paraguay</option>
+    <option value="Peru">Peru</option>
+    <option value="Philippines">Philippines</option>
+    <option value="Pitcairn">Pitcairn</option>
+    <option value="Poland">Poland</option>
+    <option value="Portugal">Portugal</option>
+    <option value="Puerto Rico">Puerto Rico</option>
+    <option value="Qatar">Qatar</option>
+    <option value="Reunion">Reunion</option>
+    <option value="Romania">Romania</option>
+    <option value="Russian Federation">Russian Federation</option>
+    <option value="Rwanda">Rwanda</option>
+    <option value="Saint Helena">Saint Helena</option>
+    <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+    <option value="Saint Lucia">Saint Lucia</option>
+    <option value="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option>
+    <option value="Saint Vincent and The Grenadines">Saint Vincent and The Grenadines</option>
+    <option value="Samoa">Samoa</option>
+    <option value="San Marino">San Marino</option>
+    <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+    <option value="Saudi Arabia">Saudi Arabia</option>
+    <option value="Senegal">Senegal</option>
+    <option value="Serbia">Serbia</option>
+    <option value="Seychelles">Seychelles</option>
+    <option value="Sierra Leone">Sierra Leone</option>
+    <option value="Singapore">Singapore</option>
+    <option value="Slovakia">Slovakia</option>
+    <option value="Slovenia">Slovenia</option>
+    <option value="Solomon Islands">Solomon Islands</option>
+    <option value="Somalia">Somalia</option>
+    <option value="South Africa">South Africa</option>
+    <option value="South Georgia and The South Sandwich Islands">South Georgia and The South Sandwich Islands
+    </option>
+    <option value="Spain">Spain</option>
+    <option value="Sri Lanka">Sri Lanka</option>
+    <option value="Sudan">Sudan</option>
+    <option value="Suriname">Suriname</option>
+    <option value="Svalbard and Jan Mayen">Svalbard and Jan Mayen</option>
+    <option value="Swaziland">Swaziland</option>
+    <option value="Sweden">Sweden</option>
+    <option value="Switzerland">Switzerland</option>
+    <option value="Syrian Arab Republic">Syrian Arab Republic</option>
+    <option value="Taiwan, Province of China">Taiwan, Province of China</option>
+    <option value="Tajikistan">Tajikistan</option>
+    <option value="Tanzania, United Republic of">Tanzania, United Republic of</option>
+    <option value="Thailand">Thailand</option>
+    <option value="Timor-leste">Timor-leste</option>
+    <option value="Togo">Togo</option>
+    <option value="Tokelau">Tokelau</option>
+    <option value="Tonga">Tonga</option>
+    <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+    <option value="Tunisia">Tunisia</option>
+    <option value="Turkey">Turkey</option>
+    <option value="Turkmenistan">Turkmenistan</option>
+    <option value="Turks and Caicos Islands">Turks and Caicos Islands</option>
+    <option value="Tuvalu">Tuvalu</option>
+    <option value="Uganda">Uganda</option>
+    <option value="Ukraine">Ukraine</option>
+    <option value="United Arab Emirates">United Arab Emirates</option>
+    <option value="United Kingdom">United Kingdom</option>
+    <option value="United States">United States</option>
+    <option value="United States Minor Outlying Islands">United States Minor Outlying Islands</option>
+    <option value="Uruguay">Uruguay</option>
+    <option value="Uzbekistan">Uzbekistan</option>
+    <option value="Vanuatu">Vanuatu</option>
+    <option value="Venezuela">Venezuela</option>
+    <option value="Viet Nam">Viet Nam</option>
+    <option value="Virgin Islands, British">Virgin Islands, British</option>
+    <option value="Virgin Islands, U.S.">Virgin Islands, U.S.</option>
+    <option value="Wallis and Futuna">Wallis and Futuna</option>
+    <option value="Western Sahara">Western Sahara</option>
+    <option value="Yemen">Yemen</option>
+    <option value="Zambia">Zambia</option>
+    <option value="Zimbabwe">Zimbabwe</option>
+    <% } %>
+
+    <!-- ======================================== Nacionalities List ========================================= -->
+
+    <% function nationalities(){ %>
+    <option value="Selecionar">Selecionar</option>
+    <option value="">----</option>
+    <option value="Albanesa">Albanesa</option>
+    <option value="Afegã">Afegã</option>
+    <option value="Alemã">Alemã</option>
+    <option value="Andorrana">Andorrana</option>
+    <option value="Angolana">Angolana</option>
+    <option value="Antiguana">Antiguana</option>
+    <option value="Argelina">Argelina</option>
+    <option value="Argentina">Argentina</option>
+    <option value="Arménia">Arménia</option>
+    <option value="Australiana">Australiana</option>
+    <option value="Austríaca">Austríaca</option>
+    <option value="Azerbaijanesa">Azerbaijanesa</option>
+    <option value="Baamiana">Baamiana</option>
+    <option value="Bangladechiano">Bangladechiano</option>
+    <option value="Barbadense">Barbadense</option>
+    <option value="Baremita">Baremita</option>
+    <option value="Belga">Belga</option>
+    <option value="Belizense">Belizense</option>
+    <option value="Beninense">Beninense</option>
+    <option value="Betchuana">Betchuana</option>
+    <option value="Bielorrussa">Bielorrussa</option>
+    <option value="Birmanesa">Birmanesa</option>
+    <option value="Boliviana">Boliviana</option>
+    <option value="Bósnia">Bósnia</option>
+    <option value="Brasileira">Brasileira</option>
+    <option value="Britânica">Britânica</option>
+    <option value="Bruneiana">Bruneiana</option>
+    <option value="Búlgara">Búlgara</option>
+    <option value="Burquina">Burquina</option>
+    <option value="Burundiana">Burundiana</option>
+    <option value="Butanesa">Butanesa</option>
+    <option value="Cabo-verdiana">Cabo-verdiana</option>
+    <option value="Camaronesa">Camaronesa</option>
+    <option value="Cambojana">Cambojana</option>
+    <option value="Canadiana">Canadiana</option>
+    <option value="Catarense">Catarense</option>
+    <option value="Cazaque">Cazaque</option>
+    <option value="Centro-africana">Centro-africana</option>
+    <option value="Chadiana">Chadiana</option>
+    <option value="Checa">Checa</option>
+    <option value="Chilena">Chilena</option>
+    <option value="Chinesa">Chinesa</option>
+    <option value="Cingalesa">Cingalesa</option>
+    <option value="Cipriota">Cipriota</option>
+    <option value="Colombiana">Colombiana</option>
+    <option value="Comoriana">Comoriana</option>
+    <option value="Congolesa (República Democrática do Congo)">Congolesa (República Democrática do Congo)</option>
+    <option value="Congolesa (República do Congo)">Congolesa (República do Congo)</option>
+    <option value="Costa-marfinense">Costa-marfinense</option>
+    <option value="Costarriquenha">Costarriquenha</option>
+    <option value="Croata">Croata</option>
+    <option value="Cubana">Cubana</option>
+    <option value="Dinamarquesa">Dinamarquesa</option>
+    <option value="Dominicana (República Dominicana)">Dominicana (República Dominicana)</option>
+    <option value="Dominiquensa (Domínica)">Dominiquensa (Domínica)</option>
+    <option value="Egípcia">Egípcia</option>
+    <option value="Equatoriana">Equatoriana</option>
+    <option value="Eritreia">Eritreia</option>
+    <option value="Eslovaca">Eslovaca</option>
+    <option value="Eslovena">Eslovena</option>
+    <option value="Espanhola">Espanhola</option>
+    <option value="Estado-unidense">Estado-unidense</option>
+    <option value="Estoniana">Estoniana</option>
+    <option value="Etíope">Etíope</option>
+    <option value="Fijiana">Fijiana</option>
+    <option value="Filipina">Filipina</option>
+    <option value="Finlandesa">Finlandesa</option>
+    <option value="Francesa">Francesa</option>
+    <option value="Gabonesa">Gabonesa</option>
+    <option value="Gambiana">Gambiana</option>
+    <option value="Ganesa">Ganesa</option>
+    <option value="Georgiana">Georgiana</option>
+    <option value="Granadina">Granadina</option>
+    <option value="Grega">Grega</option>
+    <option value="Gronelandesa">Gronelandesa</option>
+    <option value="Guatemalteca">Guatemalteca</option>
+    <option value="Guianesa">Guianesa </option>
+    <option value="Guineense (Guiné-Bissau)">Guineense (Guiné-Bissau)</option>
+    <option value="Guineense (República da Guiné)">Guineense (República da Guiné)</option>
+    <option value="Guinéu-equatoriana">Guinéu-equatoriana</option>
+    <option value="Haitiana">Haitiana</option>
+    <option value="Holandesa">Holandesa</option>
+    <option value="Hondurenha">Hondurenha</option>
+    <option value="Húngara">Húngara</option>
+    <option value="Iemenita">Iemenita</option>
+    <option value="Indiana">Indiana</option>
+    <option value="Indonésia">Indonésia</option>
+    <option value="Iraniana">Iraniana</option>
+    <option value="Iraquiana">Iraquiana</option>
+    <option value="Irlandesa">Irlandesa</option>
+    <option value="Islandesa">Islandesa</option>
+    <option value="Israelita">Israelita </option>
+    <option value="Italiana">Italiana</option>
+    <option value="Jamaicana">Jamaicana</option>
+    <option value="Japonesa">Japonesa</option>
+    <option value="Jibutiana">Jibutiana</option>
+    <option value="Jordana">Jordana</option>
+    <option value="Kosovara">Kosovara</option>
+    <option value="Kuwaitiana">Kuwaitiana</option>
+    <option value="Laociana">Laociana</option>
+    <option value="Lesotiana">Lesotiana</option>
+    <option value="Letã">Letã</option>
+    <option value="Libanesa">Libanesa</option>
+    <option value="Liberiana">Liberiana</option>
+    <option value="Líbia">Líbia</option>
+    <option value="Listenstainiana">Listenstainiana</option>
+    <option value="Lituana">Lituana</option>
+    <option value="Luxemburguesa">Luxemburguesa</option>
+    <option value="Macedónio/Cidadão da República da Macedónia do Norte">Macedónio/Cidadão da República da Macedónia do
+        Norte</option>
+    <option value="Malaia">Malaia</option>
+    <option value="Malawiana">Malawiana</option>
+    <option value="Maldívia">Maldívia</option>
+    <option value="Malgaxe">Malgaxe</option>
+    <option value="Maliana">Maliana</option>
+    <option value="Maltesa">Maltesa</option>
+    <option value="Marroquina">Marroquina</option>
+    <option value="Marshallina">Marshallina</option>
+    <option value="Mauriciana">Mauriciana</option>
+    <option value="Mauritana">Mauritana</option>
+    <option value="Mexicana">Mexicana</option>
+    <option value="Micronésia">Micronésia</option>
+    <option value="Moçambicana">Moçambicana</option>
+    <option value="Moldava">Moldava</option>
+    <option value="Monegasca">Monegasca</option>
+    <option value="Mongol">Mongol</option>
+    <option value="Montenegrina">Montenegrina</option>
+    <option value="Namibiana">Namibiana</option>
+    <option value="Nauruana">Nauruana</option>
+    <option value="Neozelandesa">Neozelandesa</option>
+    <option value="Nepalesa">Nepalesa</option>
+    <option value="Nicaraguense">Nicaraguense</option>
+    <option value="Nigeriana">Nigeriana</option>
+    <option value="Nigeriana">Nigeriana</option>
+    <option value="Niuana">Niuana</option>
+    <option value="Norte-coreana">Norte-coreana</option>
+    <option value="Norueguesa">Norueguesa</option>
+    <option value="Omanense">Omanense</option>
+    <option value="Palauana">Palauana</option>
+    <option value="Palestinos">Palestinos</option>
+    <option value="Panamenha">Panamenha</option>
+    <option value="Papua">Papua</option>
+    <option value="Paquistanesa">Paquistanesa</option>
+    <option value="Paraguaia">Paraguaia</option>
+    <option value="Peruana">Peruana</option>
+    <option value="Polaca">Polaca</option>
+    <option value="Portuguesa">Portuguesa</option>
+    <option value="Queniana">Queniana</option>
+    <option value="Quirguize">Quirguize</option>
+    <option value="Quiribatiana">Quiribatiana</option>
+    <option value="Romena">Romena</option>
+    <option value="Ruandesa">Ruandesa</option>
+    <option value="Russa">Russa</option>
+    <option value="Salomônica">Salomônica</option>
+    <option value="Salvadorenha">Salvadorenha </option>
+    <option value="Samoana">Samoana</option>
+    <option value="Santaluciense">Santaluciense</option>
+    <option value="Santomense">Santomense</option>
+    <option value="São">São Vicentina</option>
+    <option value="São-cristovense">São-cristovense</option>
+    <option value="Saudita">Saudita</option>
+    <option value="Saudita">Saudita</option>
+    <option value="Seichelense">Seichelense</option>
+    <option value="Senegalesa">Senegalesa</option>
+    <option value="Serra-leonesa">Serra-leonesa</option>
+    <option value="Sérvia">Sérvia</option>
+    <option value="Singapurense">Singapurense</option>
+    <option value="Síria">Síria</option>
+    <option value="Somaliana">Somaliana</option>
+    <option value="Suazilandês">Suazilandês</option>
+    <option value="Sudanesa">Sudanesa</option>
+    <option value="Sueca">Sueca</option>
+    <option value="Suíça">Suíça</option>
+    <option value="Sul-africana">Sul-africana</option>
+    <option value="Sul-coreana">Sul-coreana</option>
+    <option value="Sul-sudanesa">Sul-sudanesa</option>
+    <option value="Surinamense">Surinamense</option>
+    <option value="Tailandesa">Tailandesa</option>
+    <option value="Tajique">Tajique</option>
+    <option value="Tanzaniana">Tanzaniana</option>
+    <option value="Timorense">Timorense</option>
+    <option value="Tobaguiana">Tobaguiana</option>
+    <option value="Togolesa">Togolesa</option>
+    <option value="Tonganesa">Tonganesa</option>
+    <option value="Tunisina">Tunisina</option>
+    <option value="Turca">Turca</option>
+    <option value="Turquemena">Turquemena</option>
+    <option value="Tuvalesa">Tuvalesa</option>
+    <option value="Ucraniana">Ucraniana</option>
+    <option value="Ugandesa">Ugandesa</option>
+    <option value="Uruguaia">Uruguaia</option>
+    <option value="Usbeque">Usbeque </option>
+    <option value="Vanuatu">Vanuatu</option>
+    <option value="Vaticana">Vaticana</option>
+    <option value="Venezuelana">Venezuelana</option>
+    <option value="Vietnamita">Vietnamita</option>
+    <option value="Zambiana">Zambiana</option>
+    <option value="Zimbabuense">Zimbabuense</option>
+    <% } %>
+
+    <% include partials/footer %></include>

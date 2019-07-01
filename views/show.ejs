@@ -1,6 +1,33 @@
 <% include partials/header %>
 
-<%= foundCV %>
+<h3 class="titleDetailPage">INFORMAÇÃO PESSOAL</h3>
+<%= foundCV.nome %> <%= foundCV.apelido %> 
+<%= foundCV.ruaNumero %> 
+<%= foundCV.codigoPostal %> 
+<%= foundCV.cidadeInfo %> 
+<%= foundCV.paisInfo %> 
+<%= foundCV.tipo %> <%= foundCV.tel %> 
+<%= foundCV.email %> 
+
+<h3 class="titleDetailPage">TIPO DE CANDIDATURA</h3>
+<%= foundCV.candidatura %> 
+<%= foundCV.descricao %> 
+
+<h3 class="titleDetailPage">EXPERIÊNCIA PROFISSIONAL</h3>
+<%= foundCV.continuoExp %> 
+<%= foundCV.cargo %> 
+<%= foundCV.nomeEmpregador %> 
+<%= foundCV.cidadeEmpregador %> 
+<%= foundCV.paisEmpregrador %> 
+<%= foundCV.actividade %>
+
+<h3 class="titleDetailPage">EDUCAÇÃO E FORMAÇÃO</h3>
+<%= foundCV.continuoEdu %> 
+<%= foundCV.qualificacao %> 
+<%= foundCV.ensino %> 
+<%= foundCV.cidadeEdu %> 
+<%= foundCV.paisEdu %> 
+<%= foundCV.disciplinas %>
 
 
 <% include partials/footer %>
