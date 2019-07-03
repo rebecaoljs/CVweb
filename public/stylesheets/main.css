@@ -48,6 +48,9 @@ table{
 .radio-space{
     margin-right: 2rem;
 }
+textarea{
+    width: 100%;
+}
 .custom-control-label::before, 
 .custom-control-label::after {
   width: 1.3rem;
@@ -67,7 +70,15 @@ table{
 .itemsCenter{
     text-align: center; 
 }
-#campoExtra {
+div.form-group.form-head-center{
+    text-align: center;
+    border: solid 1px #033733;
+    background-color: #caebcc;
+    padding: 0px;
+    margin: 0;
+}
+.campoExtra {
+    display:none;
     padding: 0.5rem 1.2rem;;
     margin-top: 1rem;
     background-color: #caebcc;
