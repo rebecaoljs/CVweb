@@ -8,7 +8,7 @@ const   express = require("express"),
 
 const port = process.env.PORT || "8000";
 
-mongoose.connect("mongodb://ip-10-0-162-52.us-west-2.compute.internal/cv", { useNewUrlParser: true, useFindAndModify: false });
+mongoose.connect("mongodb://172.30.6.228/cv", { useNewUrlParser: true, useFindAndModify: false });
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
