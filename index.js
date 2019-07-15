@@ -1,14 +1,19 @@
 const   express = require("express"),
-        app = express(),
-        CV = require("./models/cv"),
-        mongoose = require("mongoose"),
-        methodOverride = require("method-override"),
-        request = require("request"),
-        bodyParser = require("body-parser");
+      app = express(),
+      CV = require("./models/cv"),
+      mongoose = require("mongoose"),
+      methodOverride = require("method-override"),
+      request = require("request"),
+      bodyParser = require("body-parser"),
+      server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080,
+      server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0',
+      db_name = 'cv';
 
-const port = process.env.PORT || "8000";
-
-mongoose.connect("mongodb://172.30.6.228/cv", { useNewUrlParser: true, useFindAndModify: false });
+mongodb_connection_url = 'mongodb://0.0.0.0:27017/'
+if(process.env.OPENSHIFT_MONGODB_DB_URL) {
+    mongodb_connection_url = process.env.OPENSHIFT_MONGODB_DB_URL
+}
+mongoose.connect(mongodb_connection_url + db_name, { useNewUrlParser: true, useFindAndModify: false });
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
@@ -104,6 +109,6 @@ app.get("/:id", function(req, res){
 //DESTROY ROUTE
 
 
-app.listen(port, function () {
-    console.log(`Listening to requests on http://localhost:${port}`);
+app.listen(server_port, server_ip_address, function () {
+    console.log("Listening to requests on http://" + server_ip_address + ":" + server_port);
 });
