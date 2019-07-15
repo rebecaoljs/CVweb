@@ -1,19 +1,17 @@
-const   express = require("express"),
+const express = require("express"),
       app = express(),
       CV = require("./models/cv"),
       mongoose = require("mongoose"),
       methodOverride = require("method-override"),
       request = require("request"),
-      bodyParser = require("body-parser"),
-      server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080,
-      server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0',
-      db_name = 'cv';
+      bodyParser = require("body-parser");
 
-mongodb_connection_url = 'mongodb://0.0.0.0:27017/'
-if(process.env.OPENSHIFT_MONGODB_DB_URL) {
-    mongodb_connection_url = process.env.OPENSHIFT_MONGODB_DB_URL
-}
-mongoose.connect(mongodb_connection_url + db_name, { useNewUrlParser: true, useFindAndModify: false });
+var server_port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
+    server_ip_address = process.env.PORT || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0',
+    mongo_url = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL || 'mongodb://0.0.0.0:27017/',
+    db_name = 'cv';
+
+mongoose.connect(mongo_url + db_name, { useNewUrlParser: true, useFindAndModify: false });
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
