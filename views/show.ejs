@@ -1,33 +1,210 @@
 <% include partials/header %>
 
-<h3 class="titleDetailPage">INFORMAÇÃO PESSOAL</h3>
-<%= foundCV.nome %> <%= foundCV.apelido %> 
-<%= foundCV.ruaNumero %> 
-<%= foundCV.codigoPostal %> 
-<%= foundCV.cidadeInfo %> 
-<%= foundCV.paisInfo %> 
-<%= foundCV.tipo %> <%= foundCV.tel %> 
-<%= foundCV.email %> 
+<!-- =========================================== INFORMAÇÃO PESSOAL ============================================ -->
+<div class="container">
+  <div class="personalInformation">
+    <h3 class="titleDetailPage">INFORMAÇÃO PESSOAL</h3>
+    <table class="tableDetailPage">
+      <tr>
+        <td>
+          <h3 id="fullNameDetailPAge">
+            <%= foundCV.firstName %> <%= foundCV.lastName %>
+          </h3>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= foundCV.streetNumber %>, <%= foundCV.postcode %> - <%=
+          foundCV.cityInfo %> (<%= foundCV.countryInfo %>)
+        </td>
+      </tr>
+      <tr>
+        <td><%= foundCV.typephone %>: <%= foundCV.phone %></td>
+      </tr>
+      <tr>
+        <td>
+          <a href="<%= foundCV.PersonalWebPage %>"
+            ><%= foundCV.PersonalWebPage %></a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td><%= foundCV.email %></td>
+      </tr>
+      <tr>
+        <td><%= foundCV.typeContactMsg %>: <%= foundCV.msgContact %></td>
+      </tr>
+      <tr>
+        <td>
+          Data de Nascimento: <%= foundCV.dayFormBirthday %>/<%=
+          foundCV.monthFormBirthday %>/<%= foundCV.yearFormBirthday %>
+        </td>
+      </tr>
+      <tr>
+        <td>Nacionalidade: <%= foundCV.nationality %></td>
+      </tr>
+    </table>
 
-<h3 class="titleDetailPage">TIPO DE CANDIDATURA</h3>
-<%= foundCV.candidatura %> 
-<%= foundCV.descricao %> 
-
-<h3 class="titleDetailPage">EXPERIÊNCIA PROFISSIONAL</h3>
-<%= foundCV.continuoExp %> 
-<%= foundCV.cargo %> 
-<%= foundCV.nomeEmpregador %> 
-<%= foundCV.cidadeEmpregador %> 
-<%= foundCV.paisEmpregrador %> 
-<%= foundCV.actividade %>
-
-<h3 class="titleDetailPage">EDUCAÇÃO E FORMAÇÃO</h3>
-<%= foundCV.continuoEdu %> 
-<%= foundCV.qualificacao %> 
-<%= foundCV.ensino %> 
-<%= foundCV.cidadeEdu %> 
-<%= foundCV.paisEdu %> 
-<%= foundCV.disciplinas %>
-
-
-<% include partials/footer %>
+    <!-- <%= foundCV.dateFormatBirthday %>  -->
+  </div>
+  <!-- =========================================== TIPO DE CANDIDATURA ============================================ -->
+  <div class="applicationType">
+    <h3 class="titleDetailPage"><%= foundCV.application %></h3>
+    <table class="tableDetailPage">
+      <tr>
+        <td><%= foundCV.applicationDescription %></td>
+      </tr>
+    </table>
+  </div>
+  <!-- =========================================== EXPERIÊNCIA PROFISSIONAL ============================================ -->
+  <div class="professionalExperience">
+    <h3 class="titleDetailPage">EXPERIÊNCIA PROFISSIONAL</h3>
+    <table class="tableDetailPage">
+      <tr>
+        <td><%= foundCV.role %></td>
+      </tr>
+      <tr>
+        <td>
+          <%= foundCV.employer %>, <%= foundCV.cityEmployer %> (<%=
+          foundCV.countryEmployer %>)
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Início: <%= foundCV.dateDayExperienceFrom %>/<%=
+          foundCV.dateMonthExperienceFrom %>/<%= foundCV.dateYearExperienceFrom
+          %> - Fim: <%= foundCV.dateDayExperienceTo %>/<%=
+          foundCV.dateMonthExperienceTo %>/<%= foundCV.dateYearExperienceTo %>
+        </td>
+        <td><%= foundCV.onGoingExperience %></td>
+      </tr>
+      <!-- <tr>
+      <td><%= foundCV.dateFormatExperience %></td>
+    </tr> -->
+      <!-- <tr>
+        <td><%= foundCV.moreDetailExperience %></td>
+      </tr> -->
+      <!-- <tr>
+        <td><%= foundCV.adressEmployer %></td>
+      </tr>
+      <tr>
+        <td><%= foundCV.postCodeEmployer %></td>
+      </tr>
+      <tr>
+        <td><%= foundCV.websiteEmpployer %></td>
+      </tr> -->
+      <tr>
+        <td id="textarea"><%= foundCV.branchActivity %></td>
+      </tr>
+      <tr>
+        <td><%= foundCV.responsibility %></td>
+      </tr>
+    </table>
+  </div>
+  <!-- =========================================== EDUCAÇÃO E FORMAÇÃO ============================================ -->
+  <div class="Education">
+    <h3 class="titleDetailPage">EDUCAÇÃO E FORMAÇÃO</h3>
+    <table class="tableDetailPage">
+      <tr>
+        <td><%= foundCV.professionalQualification %></td>
+      </tr>
+      <tr>
+        <td>
+          <%= foundCV.educationalInstitution %>, <%=
+          foundCV.cityEducationalInstitution %> (<%=
+          foundCV.countryEducationalInstituition %>)
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Início: <%= foundCV.dateDayEducationFrom %>/<%=
+          foundCV.dateMonthEducationFrom %>/<%= foundCV.dateYearEducationFrom %>
+          - Fim: <%= foundCV.dateDayEducationTo %>/<%=
+          foundCV.dateMonthEducationTo %>/<%= foundCV.dateYearEducationTo %>
+        </td>
+        <td><%= foundCV.onGoingEducation %></td>
+      </tr>
+      <!-- <tr>
+      <td><%= foundCV.dateFormatEducation %></td>
+    </tr> -->
+      <tr>
+        <td><%= foundCV.moreDetailEducation %></td>
+      </tr>
+      <tr>
+        <td><%= foundCV.adressNumberEducationalInstituition %></td>
+      </tr>
+      <tr>
+        <td><%= foundCV.postCodeEducationalInstituition %></td>
+      </tr>
+      <tr>
+        <td><%= foundCV.websiteEducationalInstituition %></td>
+      </tr>
+      <tr>
+        <td><%= foundCV.nationalClassification %></td>
+      </tr>
+      <tr>
+        <td><%= foundCV.subjects %></td>
+      </tr>
+    </table>
+  </div>
+  <!-- =========================================== COMPETÊNCIAS PESSOAIS ============================================ -->
+  <div class="personalSkills">
+    <h3 class="titleDetailPage">COMPETÊNCIAS PESSOAIS</h3>
+    <table class="tableDetailPage">
+      <tr>
+        <td>Língua m aterna: <%= foundCV.motherLanguage %></td>
+      </tr>
+      <tr>
+        <td><%= foundCV.comunication %></td>
+      </tr>
+      <tr>
+        <td><%= foundCV.organization %></td>
+      </tr>
+      <tr>
+        <td><%= foundCV.workSkills %></td>
+      </tr>
+      <tr>
+        <td>Língua Estrangeira: <%= foundCV.foreignLanguage %></td>
+      </tr>
+      <tr>
+        <td><%= foundCV.oralComprehension %></td>
+      </tr>
+      <tr>
+        <td><%= foundCV.understandReading %></td>
+      </tr>
+      <tr>
+        <td><%= foundCV.oralInteraction %></td>
+      </tr>
+      <tr>
+        <td><%= foundCV.oralProduction %></td>
+      </tr>
+      <tr>
+        <td><%= foundCV.writing %></td>
+      </tr>
+      <tr>
+        <td><%= foundCV.diplomaLanguages %></td>
+      </tr>
+      <tr>
+        <td><%= foundCV.informationProcessing %></td>
+      </tr>
+      <tr>
+        <td><%= foundCV.informationComunication %></td>
+      </tr>
+      <tr>
+        <td><%= foundCV.contentCreation %></td>
+      </tr>
+      <tr>
+        <td><%= foundCV.digitalSecurity %></td>
+      </tr>
+      <tr>
+        <td><%= foundCV.troubleshooting %></td>
+      </tr>
+      <tr>
+        <td><%= foundCV.diplomaDigitalSkills %></td>
+      </tr>
+      <tr>
+        <td><%= foundCV.moreInformaticSkills %></td>
+      </tr>
+    </table>
+  </div>
+</div>

@@ -1,39 +1,39 @@
 <% include partials/header %></include>
 
 <form action="/" method="POST">
-    <div class="form-group form-head-center">
-        <label for="personalInfo"></label>
-        <h2 id="personalInfo">INFORMAÇÃO PESSOAL</h2>
-    </div>
     <div class="container" id="firstSectionForm">
+        <div class="form-group form-head-center head-titles">
+            <label for="personalInfo"></label>
+            <h2 id="personalInfo">INFORMAÇÃO PESSOAL</h2>
+        </div>
         <div class="form-group">
             <label for="firstName">Nome(s) próprio(s):</label>
-            <input id="firstName" class="form-control form-control-lg" type="text" name="nome" placeholder="Ex.: Lucas">
+            <input id="firstName" class="form-control form-control-lg" type="text" name="firstName" placeholder="Ex.: Lucas">
         </div>
         <div class="form-group">
             <label for="lastName">Apelido(s):</label>
-            <input id="lastName" class="form-control form-control-lg" type="text" name="apelido"
+            <input id="lastName" class="form-control form-control-lg" type="text" name="lastName"
                 placeholder="Ex.: Ramos">
         </div>
         <div class="form-group">
             <label for="adressNumber">Nome da rua e número:</label>
-            <input id="adressNumber" class="form-control form-control-lg" type="text" name="ruaNumero"
+            <input id="adressNumber" class="form-control form-control-lg" type="text" name="streetNumber"
                 placeholder="Ex.: Rua/Número">
         </div>
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="postCode">Código postal:</label>
-                <input id="postCode" class="form-control form-control-lg" type="number" name="codigoPostal"
-                    placeholder="Ex.: 1749-321">
+                <input id="postCode" class="form-control form-control-lg" type="text" name="postcode"
+                    placeholder="Ex.: 1749-321" pattern="[0-9]{4}-[0-9]{3}">
             </div>
             <div class="form-group col-md-4">
                 <label for="city">Cidade:</label>
-                <input id="city" class="form-control form-control-lg" type="text" name="cidadeInfo"
+                <input id="city" class="form-control form-control-lg" type="text" name="cityInfo"
                     placeholder="Ex.: Lisboa">
             </div>
             <div class="form-group col-md-4">
                 <label for="countryList">País:</label>
-                <select id="countryList" class="form-control custom-select-lg custom-select" name="paisInfo">
+                <select id="countryList" class="form-control custom-select-lg custom-select" name="countryInfo">
                     <% country(); %>
                 </select>
             </div>
@@ -41,12 +41,13 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="tel">Telefone(s):</label>
-                <input id="tel" class="form-control form-control-lg" type="tel" name="tel"
+                <input id="tel" class="form-control form-control-lg" type="tel" name="phone"
                     placeholder="Ex.: (+351) 123 45 67 89">
             </div>
             <div class="form-group col-md-6">
                 <label for="type">Tipo(s):</label>
-                <select id="type" class="form-control custom-select-lg custom-select" name="tipo">
+                <select id="type" class="form-control custom-select-lg custom-select" name="typephone">
+                    <option value="">Selecionar</option>
                     <option value="Telemóvel">Telemóvel</option>
                     <option value="Casa">Casa</option>
                     <option value="Trabalho">Trabalho</option>
@@ -58,7 +59,7 @@
         </div>
         <div class="form-group">
             <label for="webPage">Página Web / Blog / LinkedIn:</label>
-            <input id="webPage" class="form-control form-control-lg" type="url" name="webPage"
+            <input id="webPage" class="form-control form-control-lg" type="url" name="PersonalWebPage"
                 placeholder="www.linkedin.com/lucasramos">
         </div>
         <div class="form-group">
@@ -69,12 +70,13 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="msg">Mensagem Instantânea:</label>
-                <input id="msg" class="form-control form-control-lg" type="text" name="msg"
+                <input id="msg" class="form-control form-control-lg" type="text" name="msgContact"
                     placeholder="Ex.: lucas.ramos">
             </div>
             <div class="form-group col-md-6">
                 <label for="candidatura">Tipo(s):</label>
-                <select id="candidatura" class="form-control custom-select-lg custom-select" name="tipoMsg">
+                <select id="candidatura" class="form-control custom-select-lg custom-select" name="typeContactMsg">
+                    <option value="">Fornecedor</option>
                     <option value="Skype">Skype</option>
                     <option value="Whatsapp">Whatsapp</option>
                     <option value="Google Hangouts">Google Hangouts</option>
@@ -95,6 +97,9 @@
                     como sexo, idade, nacionalidade, etc. para o CV.</p>
             </div>
             <div>
+
+<!-- HOW GRAB THE VALUE OF RADIO FOR DETAIL PAGE -->
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
                 <div class="form-group">
                     <p>Sexo:</p>
                 </div>
@@ -113,6 +118,8 @@
                     </div>
                 </div>
             </div>
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+<!-- HOW GRAB THE VALUE OF RADIO FOR DETAIL PAGE -->
 
             <div class="form-row">
                 <div class="form-group col-md-4">
@@ -137,107 +144,116 @@
                     </select>
                 </div>
             </div>
+<!-- HOW PUT DATE FORMAT TO WORK? MAYBE THIS OPTION AREN'T NEEDED-->
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
             <div class="form-group">
-                <label for="dateFormat">Formato da data:</label>
-                <select id="dateFormat" class="form-control custom-select-lg custom-select" name="formatoData">
+                <label for="dateFormatBirthday">Formato da data:</label>
+                <select id="dateFormatBirthday" class="form-control custom-select-lg custom-select" name="dateFormatBirthday">
                     <option data-value="numeric/long">31/01/2005</option>
                     <option data-value="text/short">31 Jan 05</option>
                     <option data-value="numeric/short">31/1/05</option>
                     <option data-value="numeric/medium">31/1/2005</option>
                 </select>
             </div>
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+<!-- HOW PUT DATE FORMAT TO WORK? MAYBE THIS OPTION AREN'T NEEDED -->
+
             <div class="form-group">
                 <label for="nacionalidade">Nacionalidade:</label>
-                <select id="nacionalidade" class="form-control custom-select-lg custom-select" name="nacionalidade">
+                <select id="nacionalidade" class="form-control custom-select-lg custom-select" name="nationality">
                     <% nationalities(); %>
                 </select>
             </div>
         </div>
     </div>
-
     <!-- ========================== SECTION TWO ========================== -->
-    <div class="form-group form-head-center">
-        <label for="candidaturaInfo"></label>
-        <h2 ID="candidaturaInfo">POSTO DE TRABALHO A QUE SE CANDIDATA</h2>
-    </div>
     <div class="container" id="secondSectionForm">
+        <div class="form-group form-head-center head-titles">
+            <label for="informationApplication"></label>
+            <h2 ID="informationApplication">POSTO DE TRABALHO A QUE SE CANDIDATA</h2>
+        </div>
         <div class="form-group">
-            <label for="candidatura">Tipo de candidatura:</label>
-            <select id="candidatura" class="form-control custom-select-lg custom-select" name="candidatura">
+            <label for="application">Tipo de candidatura:</label>
+            <select id="application" class="form-btcontrol custom-select-lg custom-select" name="application">
                 <option value="POSTO DE TRABALHO A QUE SE CANDIDATA">POSTO DE TRABALHO A QUE SE CANDIDATA</option>
                 <option value="PROFISSÃO">PROFISSÃO</option>
-                <option value="EMPREGO PRETENDIDO">EMPREGO PRETENDIDO</option>
+                <option value="EMPREGO PRETENDIDO">EMPREGO PRETENDIDO</option>  
                 <option value="ESTUDOS A QUE SE CANDIDATA">ESTUDOS A QUE SE CANDIDATA</option>
                 <option value="DECLARAÇÃO PESSOAL">DECLARAÇÃO PESSOAL</option>
             </select>
         </div>
+
+<!-- HOW CHANGE SECOND DROPDOWN  DEPENDING ON THE FIRST -->
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
         <div class="form-group">
-            <label for="descricao">Descrição:</label>
-            <select name="descricao" class="form-control custom-select-lg custom-select" id="descricao">
+            <label for="applicationDescription">Descrição:</label>
+            <select name="applicationDescription" class="form-control custom-select-lg custom-select" id="applicationDescription">
                 <% job(); %>
             </select>
         </div>
-    </div>
+<!-- HOW CHANGE SECOND DROPDOWN  DEPENDING ON THE FIRST -->
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 
-    <!-- ========================== SECTION THREE ========================== -->
-    <div class="form-group form-head-center">
-        <label for="experienceInfo"></label>
-        <h2 ID="experienceInfo">EXPERIÊNCIA PRFISSIONAOL</h2>
     </div>
+    <!-- ====================================== SECTION THREE =================================== -->
     <div class="container" id="thirdSectionForm">
+        <div class="form-group form-head-center head-titles">
+            <label for="experienceInformation"></label>
+            <h2 ID="experienceInformation">EXPERIÊNCIA PRFISSIONAOL</h2>
+        </div>
         <div class="form-row">
             <div class="form-group col-md-4">
-                <label for="dateDayExperience-De">De:</label>
-                <select class="form-control custom-select-lg custom-select" name="dateDayExperience-De"
-                    id="dateDayExperience-De">
+                <label for="dateDayExperienceFrom">De:</label>
+                <select class="form-control custom-select-lg custom-select" name="dateDayExperienceFrom"
+                    id="dateDayExperienceFrom">
                     <% day(); %>
                 </select>
             </div>
             <div class="form-group col-md-4">
-                <label for="dateMonthExperience-De">.</label>
-                <select class="form-control custom-select-lg custom-select" name="dateMonthExperience-De"
-                    id="dateMonthExperience-De">
+                <label for="dateMonthExperienceFrom">.</label>
+                <select class="form-control custom-select-lg custom-select" name="dateMonthExperienceFrom"
+                    id="dateMonthExperienceFrom">
                     <% month(); %>
                 </select>
             </div>
             <div class="form-group col-md-4">
-                <label for="dateYearExperience-De">.</label>
-                <select class="form-control custom-select-lg custom-select" name="dateYearExperience-De"
-                    id="dateYearExperience-De">
+                <label for="dateYearExperienceFrom">.</label>
+                <select class="form-control custom-select-lg custom-select" name="dateYearExperienceFrom"
+                    id="dateYearExperienceFrom">
                     <% year(); %>
                 </select>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-4">
-                <label for="dateDayExperience-A">A:</label>
-                <select class="form-control custom-select-lg custom-select" name="dateDayExperience-A"
-                    id="dateDayExperience-A">
+                <label for="dateDayExperienceTo">A:</label>
+                <select class="form-control custom-select-lg custom-select" name="dateDayExperienceTo"
+                    id="dateDayExperienceTo">
                     <% day(); %>
                 </select>
             </div>
             <div class="form-group col-md-4">
-                <label for="dateMonthExperience-A">.</label>
-                <select class="form-control custom-select-lg custom-select" name="dateMonthExperience-A"
-                    id="dateMonthExperience-A">
+                <label for="dateMonthExperienceTo">.</label>
+                <select class="form-control custom-select-lg custom-select" name="dateMonthExperienceTo"
+                    id="dateMonthExperienceTo">
                     <% month(); %>
                 </select>
             </div>
             <div class="form-group col-md-4">
-                <label for="dateYearExperience-A">.</label>
-                <select class="form-control custom-select-lg custom-select" name="dateYearExperience-A"
-                    id="dateYearExperience-A">
+                <label for="dateYearExperienceTo">.</label>
+                <select class="form-control custom-select-lg custom-select" name="dateYearExperienceTo"
+                    id="dateYearExperienceTo">
                     <% year(); %>
                 </select>
             </div>
         </div>
         <div class="custom-control custom-checkbox">
-            <input class="custom-control-input" id="continuoExperience" type="checkbox">
-            <label class="custom-control-label" for="continuoExperience">Contínuo</label>
+            <input class="custom-control-input" id="onGoingExperience" name="onGoingExperience" type="checkbox">
+            <label class="custom-control-label" for="onGoingExperience">Contínuo</label>
         </div>
         <div class="form-group">
-            <label for="dateFormat">Formato da data:</label>
-            <select id="dateFormat" class="form-control custom-select-lg custom-select" name="formatoData">
+            <label for="dateFormatExperience">Formato da data:</label>
+            <select id="dateFormatExperience" class="form-control custom-select-lg custom-select" name="dateFormatExperience">
                 <option data-value="numeric/long">31/01/2005</option>
                 <option data-value="text/short">31 Jan 05</option>
                 <option data-value="numeric/short">31/1/05</option>
@@ -245,120 +261,119 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="cargo">Função ou cargo ocupado:</label>
-            <select name="cargo" class="form-control custom-select-lg custom-select" id="cargo">
+            <label for="role">Função ou cargo ocupado:</label>
+            <select name="role" class="form-control custom-select-lg custom-select" id="role">
                 <% job(); %>
             </select>
         </div>
         <h5>EMPREGADOR</h5>
         <div class="form-group">
-            <label for="nomeEmpregador">Nome:</label>
-            <input id="nomeEmpregador" class="form-control form-control-lg" type="text" name="nomeEmpregador"
+            <label for="employer">Nome:</label>
+            <input id="employer" class="form-control form-control-lg" type="text" name="employer"
                 placeholder="Ex.: Microsoft">
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="city">Cidade:</label>
-                <input id="city" class="form-control form-control-lg" type="text" name="cidadeInfo"
+                <label for="cityEmployer">Cidade:</label>
+                <input id="cityEmployer" class="form-control form-control-lg" type="text" name="cityEmployer"
                     placeholder="Ex.: Lisboa">
             </div>
             <div class="form-group col-md-6">
-                <label for="countryList">País:</label>
-                <select id="countryList" class="form-control custom-select-lg custom-select" name="paisInfo">
+                <label for="countryEmployer">País:</label>
+                <select id="countryEmployer" class="form-control custom-select-lg custom-select" name="countryEmployer">
                     <% country(); %>
                 </select>
             </div>
         </div>
         <div class="custom-control custom-checkbox">
-            <input class="custom-control-input" id="maisDetalheExperience" type="checkbox"
+            <input class="custom-control-input" id="moreDetailExperience" name="moreDetailExperience" type="checkbox"
                 onclick="hideDetalheExperience()">
-            <label class="custom-control-label" for="maisDetalheExperience">Mais Detalhes(complete apenas se
+            <label class="custom-control-label" for="moreDetailExperience">Mais Detalhes(complete apenas se
                 necessário)</label>
         </div>
         <div class="form-group campoExtra" id="campoExtraExperience">
             <div class="row">
                 <div class="form-group col-md-9">
-                    <label for="adressNumber">Nome da rua e número:</label>
-                    <input id="adressNumber" class="form-control form-control-lg" type="text" name="ruaNumero"
+                    <label for="adressEmployer">Nome da rua e número:</label>
+                    <input id="adressEmployer" class="form-control form-control-lg" type="text" name="adressEmployer"
                         placeholder="Ex.: Rua/Número">
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="postCode">Código postal:</label>
-                    <input id="postCode" class="form-control form-control-lg" type="number" name="codigoPostal"
+                    <label for="postCodeEmployer">Código postal:</label>
+                    <input id="postCodeEmployer" class="form-control form-control-lg" type="number" name="postCodeEmployer"
                         placeholder="Ex.: 1749-321">
                 </div>
             </div>
             <div class="form-group">
-                <label for="websiteEmpresa">Website:</label>
-                <input id="websiteEmpresa" class="form-control form-control-lg" type="text" name="websiteEmpresa"
+                <label for="websiteEmpployer">Website:</label>
+                <input id="websiteEmpployer" class="form-control form-control-lg" type="text" name="websiteEmpployer"
                     placeholder="Ex.: https://www.microsoft.com/pt-pt">
             </div>
             <div class="form-group">
-                <label for="setor">Tipo de empresa ou setor de atividade:</label>
-                <select id="setor" class="form-control custom-select-lg custom-select" name="setor">
+                <label for="branchActivity">Tipo de empresa ou ramo de atividade:</label>
+                <select id="branchActivity" class="form-control custom-select-lg custom-select" name="branchActivity">
                     <% setor(); %>
                 </select>
             </div>
         </div>
         <div class="form-group form-block">
-            <label for="actividade">Principais actividades e responsabilidades:</label>
-            <textarea id="actividade" name="actividade" cols="" rows=5></textarea>
+            <label for="responsibility">Principais actividades e responsabilidades:</label>
+            <textarea id="responsibility" name="responsibility" cols="" rows="5"></textarea>
         </div>
     </div>
-
-    <!-- ========================== SECTION FOUR ========================== -->
-    <div class="form-group form-head-center">
-        <label for="eduInfo"></label>
-        <h2 ID="eduInfo">EDUCAÇÃO E FORMAÇÃO</h2>
-    </div>
+    <!-- ========================== SECTION FOUR =========================== -->
     <div class="container" id="fourSectionForm">
+        <div class="form-group form-head-center head-titles">
+            <label for="eduInfo"></label>
+            <h2 ID="eduInfo">EDUCAÇÃO E FORMAÇÃO</h2>
+        </div>
         <div class="form-row">
             <div class="form-group col-md-4">
-                <label for="dateDayEdu-De">De:</label>
-                <select class="form-control custom-select-lg custom-select" name="dateDayEdu-De" id="dateDayEdu-De">
+                <label for="dateDayEducationFrom">De:</label>
+                <select class="form-control custom-select-lg custom-select" name="dateDayEducationFrom" id="dateDayEducationFrom">
                     <% day(); %>
                 </select>
             </div>
             <div class="form-group col-md-4">
-                <label for="dateMonthEdu-De">.</label>
-                <select class="form-control custom-select-lg custom-select" name="dateMonthEdu-De" id="dateMonthEdu-De">
+                <label for="dateMonthEducationFrom">.</label>
+                <select class="form-control custom-select-lg custom-select" name="dateMonthEducationFrom" id="dateMonthEducationFrom">
                     <% month(); %>
                 </select>
             </div>
             <div class="form-group col-md-4">
-                <label for="dateYearEdu-De">.</label>
-                <select class="form-control custom-select-lg custom-select" name="dateYearEdu-De" id="dateYearEdu-De">
+                <label for="dateYearEducationFrom">.</label>
+                <select class="form-control custom-select-lg custom-select" name="dateYearEducationFrom" id="dateYearEducationFrom">
                     <% year(); %>
                 </select>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-4">
-                <label for="dateDayEdu-A">A:</label>
-                <select class="form-control custom-select-lg custom-select" name="dateDayEdu-A" id="dateDayEdu-A">
+                <label for="dateDayEducationTo">A:</label>
+                <select class="form-control custom-select-lg custom-select" name="dateDayEducationTo" id="dateDayEducationTo">
                     <% day(); %>
                 </select>
             </div>
             <div class="form-group col-md-4">
-                <label for="dateMonthEdu-A">.</label>
-                <select class="form-control custom-select-lg custom-select" name="dateMonthEdu-A" id="dateMonthEdu-A">
+                <label for="dateMonthEducationTo">.</label>
+                <select class="form-control custom-select-lg custom-select" name="dateMonthEducationTo" id="dateMonthEducationTo">
                     <% month(); %>
                 </select>
             </div>
             <div class="form-group col-md-4">
-                <label for="dateYearEdu-A">.</label>
-                <select class="form-control custom-select-lg custom-select" name="dateYearEdu-A" id="dateYearEdu-A">
+                <label for="dateYearEducationTo">.</label>
+                <select class="form-control custom-select-lg custom-select" name="dateYearEducationTo" id="dateYearEducationTo">
                     <% year(); %>
                 </select>
             </div>
         </div>
         <div class="custom-control custom-checkbox">
-            <input class="custom-control-input" id="continuoEu" type="checkbox">
-            <label class="custom-control-label" for="continuoEu">Contínuo</label>
+            <input class="custom-control-input" id="onGoingEducation" name="onGoingEducation" type="checkbox">
+            <label class="custom-control-label" for="onGoingEducation">Contínuo</label>
         </div>
         <div class="form-group">
-            <label for="dateFormat">Formato da data:</label>
-            <select id="dateFormat" class="form-control custom-select-lg custom-select" name="formatoData">
+            <label for="dateFormatEducation">Formato da data:</label>
+            <select id="dateFormatEducation" class="form-control custom-select-lg custom-select" name="dateFormatEducation">
                 <option data-value="numeric/long">31/01/2005</option>
                 <option data-value="text/short">31 Jan 05</option>
                 <option data-value="numeric/short">31/1/05</option>
@@ -366,57 +381,57 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="qualification">Designação da qualificação atribuída:</label>
-            <input id="qualification" class="form-control form-control-lg" type="text" name="qualification"
+            <label for="professionalQualification">Designação da qualificação atribuída:</label>
+            <input id="professionalQualification" class="form-control form-control-lg" type="text" name="professionalQualification"
                 placeholder="Certificado de Técnico em Eletrónica e Automação Naval">
         </div>
         <h5>Organização de ensino ou formação</h5>
         <div class="form-group">
-            <label for="ensino">Nome:</label>
-            <input id="ensino" class="form-control form-control-lg" type="text" name="ensino"
+            <label for="educationalInstitution">Nome:</label>
+            <input id="educationalInstitution" class="form-control form-control-lg" type="text" name="educationalInstitution"
                 placeholder="Escola Superior Náutica Infante D. Henrique">
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="city">Cidade:</label>
-                <input id="city" class="form-control form-control-lg" type="text" name="cidadeInfo"
+                <label for="cityEducationalInstitution">Cidade:</label>
+                <input id="cityEducationalInstitution" class="form-control form-control-lg" type="text" name="cityEducationalInstitution"
                     placeholder="Ex.: Lisboa">
             </div>
             <div class="form-group col-md-6">
-                <label for="countryList">País:</label>
-                <select id="countryList" class="form-control custom-select-lg custom-select" name="paisInfo">
+                <label for="countryEducationalInstituition">País:</label>
+                <select id="countryEducationalInstituition" class="form-control custom-select-lg custom-select" name="countryEducationalInstituition">
                     <% country(); %>
                 </select>
             </div>
         </div>
         <div class="custom-control custom-checkbox">
-            <input class="custom-control-input" id="maisDetalheEdu" type="checkbox" onclick="hideDetalheEdu()">
-            <label class="custom-control-label" for="maisDetalheEdu">Mais Detalhes(complete apenas se
+            <input class="custom-control-input" id="moreDetailEducation" name="moreDetailEducation" type="checkbox" onclick="hideDetalheEdu()">
+            <label class="custom-control-label" for="moreDetailEducation">Mais Detalhes(complete apenas se
                 necessário)</label>
         </div>
-        <div class="form-group campoExtra" id="campoExtraEdu">
+        <div class="form-group campoExtra" id="ExtraFieldEducation">
             <div class="row">
                 <div class="form-group col-md-9">
-                    <label for="adressNumber">Nome da rua e número:</label>
-                    <input id="adressNumber" class="form-control form-control-lg" type="text" name="ruaNumero"
+                    <label for="adressNumberEducationalInstituition">Nome da rua e número:</label>
+                    <input id="adressNumberEducationalInstituition" class="form-control form-control-lg" type="text" name="adressNumberEducationalInstituition"
                         placeholder="Ex.: Rua/Número">
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="postCode">Código postal:</label>
-                    <input id="postCode" class="form-control form-control-lg" type="number" name="codigoPostal"
+                    <label for="postCodeEducationalInstituition">Código postal:</label>
+                    <input id="postCodeEducationalInstituition" class="form-control form-control-lg" type="number" name="postCodeEducationalInstituition"
                         placeholder="Ex.: 1749-321">
                 </div>
             </div>
             <div class="form-group">
-                <label for="websiteEdu">Website:</label>
-                <input id="websiteEdu" class="form-control form-control-lg" type="text" name="websiteEdu"
+                <label for="websiteEducationalInstituition">Website:</label>
+                <input id="websiteEducationalInstituition" class="form-control form-control-lg" type="text" name="websiteEducationalInstituition"
                     placeholder="Ex.: https://www.enautica.pt/">
             </div>
         </div>
         <div class="form-group">
-            <label for="qeq">Nível QEQ ou classificação nacional:</label>
-            <select id="qeq" class="form-control custom-select-lg custom-select" name="qeq">
-                <option value="Selecionar">Selecionar</option>
+            <label for="nationalClassification">Nível QEQ ou classificação nacional:</label>
+            <select id="nationalClassification" class="form-control custom-select-lg custom-select" name="nationalClassification">
+                <option value="">Selecionar</option>
                 <option value="">----</option>
                 <option value="Nível 1 QRQ">Nível 1 QRQ</option>
                 <option value="Nível 2 QRQ">Nível 2 QRQ</option>
@@ -429,13 +444,12 @@
             </select>
         </div>
         <div class="form-group form-block">
-            <label for="disciplinas">Principais disciplinas / competências profissionais:</label>
-            <textarea id="disciplinas" name="disciplinas" cols="" rows="5"></textarea>
+            <label for="subjects">Principais disciplinas / competências profissionais:</label>
+            <textarea id="subjects" name="subjects" cols="" rows="5"></textarea>
         </div>
     </div>
-
     <!-- ========================== SECTION FIVE ========================== -->
-    <div class="container" id="fiveSectionForm">
+    <div class="container" id="fiveSectionForm head-titles">
         <div class="form-group form-head-center">
             <label for="competenciasInfo"></label>
             <h2 ID="competenciasInfo">COMPETÊNCIAS PESSOAIS</h2>
@@ -447,61 +461,61 @@
             </select>
         </div>
         <div class="form-group form-block">
-            <label for="comunicacao">Competências de comunicação:</label>
-            <textarea id="comunicacao" name="comunicacao" cols="" rows="5"></textarea>
+            <label for="comunication">Competências de comunicação:</label>
+            <textarea id="comunication" name="comunication" cols="" rows="5"></textarea>
         </div>
         <div class="form-group form-block">
-            <label for="organizacao">Competências de organização:</label>
-            <textarea id="organizacao" name="organizacao" cols="" rows="5"></textarea>
+            <label for="organization">Competências de organização:</label>
+            <textarea id="organization" name="organization" cols="" rows="5"></textarea>
         </div>
         <div class="form-group form-block">
-            <label for="compTrabalho">Competências relacionadas com o trabalho:</label>
-            <textarea id="compTrabalho" name="compTrabalho" cols="" rows="5"></textarea>
+            <label for="workSkills">Competências relacionadas com o trabalho:</label>
+            <textarea id="workSkills" name="workSkills" cols="" rows="5"></textarea>
         </div>
         <div class="form-group">
-            <label for="lEstrangeira">Línguas Estrangeiras:</label>
-            <select id="lEstrangeira" class="form-control custom-select-lg custom-select" name="lEstrangeira">
+            <label for="foreignLanguage">Línguas Estrangeiras:</label>
+            <select id="foreignLanguage" class="form-control custom-select-lg custom-select" name="foreignLanguage">
                 <% language(); %>
             </select>
         </div>
         <div class="row">
             <div class="form-group col-md-6">
-                <label for="compreensaoOral">Compreender:</label>
-                <select id="compreensaoOral" class="form-control custom-select-lg custom-select" name="compreensaoOral">
+                <label for="oralComprehension">Compreender:</label>
+                <select id="oralComprehension" class="form-control custom-select-lg custom-select" name="oralComprehension">
                     <% speak(); %>
                 </select>
             </div>
             <div class="form-group col-md-6">
-                <label for="compreensaoLeitura">.</label>
-                <select id="compreensaoLeitura" class="form-control custom-select-lg custom-select"
-                    name="compreensaoLeitura">
+                <label for="understandReading">.</label>
+                <select id="understandReading" class="form-control custom-select-lg custom-select"
+                    name="understandReading">
                     <% read(); %>
                 </select>
             </div>
         </div>
         <div class="row">
             <div class="form-group col-md-6">
-                <label for="interacaoOral">Falar:</label>
-                <select id="interacaoOral" class="form-control custom-select-lg custom-select" name="interacaoOral">
+                <label for="oralInteraction">Falar:</label>
+                <select id="oralInteraction" class="form-control custom-select-lg custom-select" name="oralInteraction">
                     <% speakfluence(); %>
                 </select>
             </div>
             <div class="form-group col-md-6">
-                <label for="producaoOral">.</label>
-                <select id="producaoOral" class="form-control custom-select-lg custom-select" name="producaoOral">
+                <label for="oralProduction">.</label>
+                <select id="oralProduction" class="form-control custom-select-lg custom-select" name="oralProduction">
                     <% speakfluenceLevel(); %>
                 </select>
             </div>
         </div>
         <div class="form-group">
-            <label for="escrever">Escrever:</label>
-            <select id="escrever" class="form-control custom-select-lg custom-select" name="escrever">
+            <label for="writing">Escrever:</label>
+            <select id="writing" class="form-control custom-select-lg custom-select" name="writing">
                 <% write(); %>
             </select>
         </div>
         <div class="form-group">
-            <label for="diplomalinguas">Diploma(s) ou certificado(s):</label>
-            <input id="diplomalinguas" class="form-control form-control-lg" type="text" name="diplomalinguas"
+            <label for="diplomaLanguages">Diploma(s) ou certificado(s):</label>
+            <input id="diplomaLanguages" class="form-control form-control-lg" type="text" name="diplomaLanguages"
                 placeholder="Ex.: Diploma de Estudos em Língua Espanhola (DELF)...">
         </div>
         <div class="form-group">
@@ -510,50 +524,53 @@
         </div>
         <div class="row">
             <div class="form-group col-md-6">
-                <label for="processamentoInfo">Processamento de informação:</label>
-                <select id="processamentoInfo" class="form-control custom-select-lg custom-select"
-                    name="processamentoInfo">
+                <label for="informationProcessing">Processamento de informação:</label>
+                <select id="informationProcessing" class="form-control custom-select-lg custom-select"
+                    name="informationProcessing">
                     <% processamento(); %>
                 </select>
             </div>
             <div class="form-group col-md-6">
-                <label for="comunicacao">Comunicação</label>
-                <select id="comunicacao" class="form-control custom-select-lg custom-select" name="comunicacao">
+                <label for="informationComunication">Comunicação</label>
+                <select id="informationComunication" class="form-control custom-select-lg custom-select" name="informationComunication">
                     <% comunicacao(); %>
                 </select>
             </div>
         </div>
         <div class="row">
             <div class="form-group col-md-6">
-                <label for="criacaoConteudo">Criação de conteúdos:</label>
-                <select id="criacaoConteudo" class="form-control custom-select-lg custom-select" name="criacaoConteudo">
+                <label for="contentCreation">Criação de conteúdos:</label>
+                <select id="contentCreation" class="form-control custom-select-lg custom-select" name="contentCreation">
                     <% conteudo(); %>
                 </select>
             </div>
             <div class="form-group col-md-6">
-                <label for="seguranca">Segurança</label>
-                <select id="seguranca" class="form-control custom-select-lg custom-select" name="seguranca">
+                <label for="digitalSecurity">Segurança</label>
+                <select id="digitalSecurity" class="form-control custom-select-lg custom-select" name="digitalSecurity">
                     <% seguranca(); %>
                 </select>
             </div>
         </div>
         <div class="form-group">
-            <label for="resolucaoProblemas">Resolução de problemas:</label>
-            <select id="resolucaoProblemas" class="form-control custom-select-lg custom-select"
-                name="resolucaoProblemas">
+            <label for="troubleshooting">Resolução de problemas:</label>
+            <select id="troubleshooting" class="form-control custom-select-lg custom-select"
+                name="troubleshooting">
                 <% resolucaoProblemas(); %>
             </select>
         </div>
         <div class="form-group">
-            <label for="diplomaCompetenciasDiditais">Certificados em TIC:</label>
-            <input id="diplomaCompetenciasDiditais" class="form-control form-control-lg" type="text"
-                name="diplomaCompetenciasDiditais"
+            <label for="diplomaDigitalSkills">Certificados em TIC:</label>
+            <input id="diplomaDigitalSkills" class="form-control form-control-lg" type="text"
+                name="diplomaDigitalSkills"
                 placeholder="Ex.: Certificado Nacional: Suíte de Escritório - Utilizad...">
         </div>
         <div class="form-group form-block">
-            <label for="MaisInformatica">Outras competências informáticas:</label>
-            <textarea id="MaisInformatica" name="MaisInformatica" cols="" rows="5"></textarea>
+            <label for="moreInformaticSkills">Outras competências informáticas:</label>
+            <textarea id="moreInformaticSkills" name="moreInformaticSkills" cols="" rows="5"></textarea>
         </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-success">Salvar</button>
     </div>I
 </form>I
 <!-- ========================================== Functions ========================================== -->
@@ -604,7 +621,7 @@
         // Get the checkbox
         var checkBox = document.getElementById("maisDetalheEdu");
         // Get the output text
-        var text = document.getElementById("campoExtraEdu");
+        var text = document.getElementById("ExtraFieldEducation");
 
         // If the checkbox is checked, display the output text
         if (checkBox.checked == true) {
@@ -795,7 +812,7 @@
 <!-- ================================================ Country List ================================== -->
 
 <% function country(){ %>
-<option value="Selecionar">Selecionar</option>
+<option value="">Selecionar</option>
 <option value="">----</option>
 <option value="Afghanistan">Afghanistan</option>
 <option value="Åland Islands">Åland Islands</option>
@@ -1047,7 +1064,7 @@
 <!-- ======================================== Nacionalities List ========================================= -->
 
 <% function nationalities(){ %>
-<option value="Selecionar">Selecionar</option>
+<option value="">Selecionar</option>
 <option value="">----</option>
 <option value="Albanesa">Albanesa</option>
 <option value="Afegã">Afegã</option>
@@ -1253,7 +1270,7 @@
 <!-- ====================================================================== JOB LIST ========================================================================== -->
 
 <% function job(){ %>
-<option value="Selecionar">Selecionar</option>
+<option value="">Selecionar</option>
 <option value="">----</option>
 <option value="Acabador de vestuário/Acabadora de vestuário">Acabador de vestuário/Acabadora de vestuário
 </option>
@@ -7135,7 +7152,7 @@
 <!-- ================================ EMPRESA SETOR ============================ -->
 
 <% function setor(){ %>
-<option value="Selecionar">Selecionar</option>
+<option value="">Selecionar</option>
 <option value="">----</option>
 <option value="Actividades Administrativas E Dos Serviços De Apoio">Actividades Administrativas E Dos Serviços
     De
@@ -7175,7 +7192,7 @@
 <% } %>
 
 <% function language(){ %>
-<option value="Selecionar">Selecionar</option>
+<option value="">Selecionar</option>
 <option value="">----</option>
 <option value="Galego">Galego</option>
 <option value="abecásio">abecásio</option>

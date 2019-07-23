@@ -1,78 +1,76 @@
 <% include partials/header %>
 
 <div class="wrapper">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-3 align-items-start flex-column">
-                <div class="">
-                    <form action="/new" method="GET">
-                        <button class="btn btn-lg btn-color">Criar Novo Currículo</button>
-                    </form>
-                </div>
-                <div class="list-group">
-                    <li id="sideBarHead" class="list-group-item">SideBar</li>
-                    <li class="list-group-item">Info 1</li>
-                    <li class="list-group-item">Info 2</li>
-                    <li class="list-group-item">Info 3</li>
-                    <li class="list-group-item">Info 1</li>
-                    <li class="list-group-item">Info 2</li>
-                    <li class="list-group-item">Info 3</li>
-                </div>
-            </div>
-            <div class="col-md-9">
-                <table class="table">
-                    <div>
-                        <h1 class="title">Currículos armazenados em sistema</h1>
-                    </div>
-                    <thead id="headTable">
-                        <tr>
-                            <th>
-                                Nome
-                            </th>
-                            <th>
-                                Qualificação
-                            </th>
-                            <th class="itemsCenter">
-                                Ver CV Completo
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% cv.forEach(function(cvs){ %>
-                        <tr>
-                            <td>
-                                <%= cvs.nome %> <%= cvs.apelido %>
-                            </td>
-                            <td>
-                                <%= cvs.qualificacao %>
-                            </td>
-                            <td class="itemsCenter">
-                                <a href="/<%= cvs._id %>"><i class="fas fa-book-open"></i></a>
-                            </td>
-                        </tr>
-                        <% }); %>
-                    </tbody>
-                </table>
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-end">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Proxímo</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3 align-items-start flex-column">
+        <div class="">
+          <form action="/new" method="GET">
+            <button class="btn btn-lg btn-color">Criar Novo Currículo</button>
+          </form>
         </div>
+        <div class="list-group">
+          <li id="sideBarHead" class="list-group-item">SideBar</li>
+          <li class="list-group-item">Info 1</li>
+          <li class="list-group-item">Info 2</li>
+          <li class="list-group-item">Info 3</li>
+          <li class="list-group-item">Info 1</li>
+          <li class="list-group-item">Info 2</li>
+          <li class="list-group-item">Info 3</li>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <table class="table">
+          <div>
+            <h1 class="title">Currículos armazenados em sistema</h1>
+          </div>
+          <thead id="headTable">
+            <tr>
+              <th>
+                Nome
+              </th>
+              <th>
+                Qualificação
+              </th>
+              <th class="itemsCenter">
+                Ver CV Completo
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <% cv.forEach(function(cvs){ %>
+            <tr>
+              <td>
+                <%= cvs.firstName %> <%= cvs.lastName %>
+              </td>
+              <td>
+                <%= cvs.qualificacao %>
+              </td>
+              <td class="itemsCenter">
+                <a href="/<%= cvs._id %>"><i class="fas fa-book-open"></i></a>
+              </td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-end">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1" aria-disabled="true"
+                >Anterior</a
+              >
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">Proxímo</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
+  </div>
 </div>
-
-
-
-
 
 <% include partials/footer %>
