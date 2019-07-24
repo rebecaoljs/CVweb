@@ -1,22 +1,21 @@
+/* ********** style in all pages ********** */
 body {
   background-color: #e3ede4;
   font-family: "Times New Roman", Times, serif;
   font-size: 1.4rem;
 }
 table {
-  border: #033733 solid 1px;
-  text-align: start;
+  border: #00130c solid 1px;
+  height: 30px;
+  line-height: 30px;
 }
 .navbar {
-  background-color: #033733;
+  background-color: #00130c;
   color: #e3ede4;
   padding: 0;
 }
 .nav-link {
   color: #e3ede4;
-}
-.fa-book-open {
-  color: #033733;
 }
 .list-group-item {
   background-color: transparent;
@@ -25,19 +24,45 @@ table {
   font-size: 2.5rem;
   padding: 0;
 }
+.page-item .page-link {
+  color: #00130c;
+}
+textarea:focus,
+input:focus,
+input[type]:focus,
+.uneditable-input:focus {
+  border-color: rgba(3, 55, 51, 0.8);
+  box-shadow: 0 1px 1px rgba(3, 55, 51, 0.075) inset,
+    0 0 8px rgba(3, 55, 51, 0.6);
+  outline: 0 none;
+}
+/* **********  Style in List Page ********** */
+.table th,
+.table td {
+  vertical-align: middle;
+}
+.fa-book-open {
+  color: #00130c;
+}
+.fa-book-open:hover {
+  color: #033733;
+}
 .wrapper {
   max-width: 90%;
   margin: 50px auto;
 }
-.page-item .page-link {
-  color: #033733;
-}
 .btn-color {
-  background-color: #033733;
+  background-color: #00130c;
   color: #e3ede4;
   font-size: 1.6rem;
   margin-bottom: 4px;
   width: 100%;
+}
+.btn-color:hover,
+.nav-link:hover {
+  background-color: #00130c;
+  color: #e3ede4;
+  font-weight: 600;
 }
 .elementsAboveTitleTableListPage {
   line-height: 0%;
@@ -45,13 +70,58 @@ table {
   max-width: 100%;
   margin-top: -8px;
 }
+.inputSearchEngine:focus {
+  background-color: #e3ede4;
+  color: #00130c;
+  border-color: rgba(3, 55, 51, 0.8);
+  box-shadow: 0 1px 1px rgba(3, 55, 51, 0.075) inset,
+    0 0 8px rgba(3, 55, 51, 0.6);
+  outline: 0 none;
+}
+.inputSearchEngine {
+  background-color: #e3ede4;
+  color: #00130c;
+  border-color: rgba(3, 55, 51, 0.8);
+}
+placeholder.inputSearchEngine {
+  color: #e3ede4;
+}
 .h1ListPage {
   text-align: center;
   padding: 10px 0;
   font-size: 2.8rem;
-  background-color: #370307;
+  background-color: #033733;
   color: #e3ede4;
 }
+.rowTableListPage {
+  height: 40px;
+  line-height: 40px;
+}
+#headTable {
+  background-color: #00130c;
+  color: #e3ede4;
+}
+#sideBarHead {
+  background-color: #033733;
+  color: #e3ede4;
+  line-height: 40px;
+  font-size: 1.7rem;
+}
+.pagination li {
+  background-color: #033733;
+  color: #e3ede4;
+  padding: 0.5rem;
+  text-align: right;
+}
+.pagination li:hover {
+  cursor: pointer;
+  background-color: #e3ede4;
+  color: #033733;
+}
+#tableListCvs tr:nth-child(2n) {
+  background-color: white;
+}
+/* ********** New.js Page ********** */
 .radio-space {
   margin-right: 2rem;
 }
@@ -66,14 +136,14 @@ textarea {
 .fa-plus-square {
   margin: 33px 0 0 0;
   font-size: 50px;
-  color: #033733;
+  color: #00130c;
 }
 .itemsCenter {
   text-align: center;
 }
 div.form-group.form-head-center {
   text-align: center;
-  border: solid 1px #033733;
+  border: solid 1px #00130c;
   background-color: #caebcc;
   margin: 40px auto 20px auto;
   line-height: 0;
@@ -84,16 +154,7 @@ div.form-group.form-head-center {
   margin-top: 1rem;
   background-color: #caebcc;
 }
-#headTable {
-  background-color: #033733;
-  color: #e3ede4;
-}
-#sideBarHead {
-  background-color: #370307;
-  color: #e3ede4;
-}
-/* ============================================== DETAIL PAGE ================================================== */
-
+/* ********** DETAIL PAGE ********** */
 .tableDetailPage {
   background-color: white;
   margin: 0 auto;
@@ -106,7 +167,7 @@ td {
 }
 .titleDetailPage {
   text-align: center;
-  background-color: #033733;
+  background-color: #00130c;
   color: #e3ede4;
   margin: 5px 0;
 }

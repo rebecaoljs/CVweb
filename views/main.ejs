@@ -17,16 +17,17 @@
       <div class="col-md-9">
         <div class="row d-flex align-items-end mx-auto">
           <!-- display search engine -->
-          <div class="col-md-4 elementsAboveTitleTableListPage">
+          <div class="col-md-4 elementsAboveTitleTableListPage" id="">
             <div class="form-group mb-1">
               <form action="#" method="GET">
                 <label for="searchListCvs"></label>
                 <input
                   type="text"
                   id="searchListCvs"
-                  class="form-control form-control-lg"
+                  class="form-control inputSearchEngine form-control-lg"
                   placeholder="Buscar CV no Site"
                   name="searchCV"
+                  onkeyup="searchEngineFunction()"
                 />
               </form>
             </div>
@@ -45,7 +46,7 @@
           <div class="col-md-4 elementsAboveTitleTableListPage">
             <div class="form-group mb-1">
               <select
-                class="form-control form-control-lg"
+                class="form-control form-control-lg inputSearchEngine"
                 name="state"
                 id="maxRows"
               >
@@ -78,14 +79,14 @@
               </th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="tbodyListPage">
             <% cv.forEach(function(cvs){ %>
-            <tr>
+            <tr class="rowTableListPage">
               <td>
                 <%= cvs.firstName %> <%= cvs.lastName %>
               </td>
               <td>
-                <%= cvs.qualificacao %>
+                <%= cvs.applicationDescription %>
               </td>
               <td class="itemsCenter">
                 <a href="/<%= cvs._id %>"><i class="fas fa-book-open"></i></a>
@@ -94,41 +95,47 @@
             <% }); %>
           </tbody>
         </table>
-        <nav aria-label="Page navigation example">
-          <ul class="pagination justify-content-end">
-            <li class="page-item disabled">
-              <a class="page-link" href="#" tabindex="-1" aria-disabled="true"
-                >Anterior</a
-              >
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#">Proxímo</a>
-            </li>
-          </ul>
-        </nav>
       </div>
     </div>
 
     <!--		Start Pagination -->
-    <div class="pagination-container">
+    <div class="pagination-container d-flex flex-row-reverse">
       <nav>
         <ul class="pagination">
           <li data-page="prev">
-            <span> < <span class="sr-only">(current)</span></span>
+            <span> Anterior <span class="sr-only">(current)</span></span>
           </li>
           <!--	Here the JS Function Will Add the Rows -->
           <li data-page="next" id="prev">
-            <span> > <span class="sr-only">(current)</span></span>
+            <span> Proxímo <span class="sr-only">(current)</span></span>
           </li>
         </ul>
       </nav>
     </div>
   </div>
 </div>
-
+<!-- ============================================== SEARCH ENGINE SCRIPT ============================================= -->
+<script>
+  function searchEngineFunction() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("searchListCvs");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("tableListCvs");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+</script>
+<!-- ============================================== PAGINATION SCRIPT ================================================ -->
 <script>
   getPagination("#tableListCvs");
   //getPagination('.table-class');
